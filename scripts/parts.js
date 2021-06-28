@@ -48,15 +48,24 @@ const insertFXTest = () => {
 
     b.addBuffer( b2.buffer );
 
-    const i = new FXPresets();
-    i.fx39();
+    b2.sine(432*2, 1).fill();
+    b2.ramp(0, 1, 0.01, 0.015, 0.5, 8).multiply();
+
+    b.spliceBuffer( b2.buffer, 0, 1, 0.3 );
+
+    b2.sine(432*4, 0.25).fill();
+    b2.ramp(0, 1, 0.4, 0.6, 10, 10).multiply();
+
+    b.spliceBuffer( b2.buffer, 0, 1, 0.6 );
+
+    const i = new PercussionPresets();
+    i.perc7();
 
     const c = new MyConvolver(1, bL, audioCtx.sampleRate);
 
     c.setBuffer( b.buffer );
 
     bufferGraph(b.buffer);
-    bufferGraph(b2.buffer);
     // bufferGraph(i.buffer);
 
     i.connect(c);

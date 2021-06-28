@@ -9017,7 +9017,7 @@ MyBuffer2.prototype = {
 			for (let i=0; i<this.buffer.length; i++){
 				
 				if( i > startSample && i < endSample ){
-					this.nowBuffering[i] = this.shape[i];
+					this.nowBuffering[i] += this.shape[i];
 				}
 			
 			}
@@ -9510,7 +9510,7 @@ MyBuffer2.prototype = {
 			for(var h=0; h<this.cL; h++){
 
 				if(h+this.nSP<=this.bufferArray.length){
-					this.bufferArray[h+this.nSP] = this.cA[h];
+					this.bufferArray[h+this.nSP] += this.cA[h];
 				}
 
 			}
