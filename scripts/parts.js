@@ -169,3 +169,49 @@ const noiseSpliceTest = () => {
     i.startAtTime( globalNow+1 );
 
 }
+
+const bloomSchwaTest = () => {
+
+    const output = new MyGain(64);
+
+    const bL = 2;
+    const fund = 432;
+
+    const b = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    const aB = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    const c = new MyConvolver(1, bL, audioCtx.sampleRate);
+    
+    const i = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    i.impulse().add();
+    i.playbackRate = 1;
+
+    let rP = 0;
+    const sArray = [1, 4.75, 6.375, 3.218181818181818, 4.527272727272727, 1.859375, 3.734375];
+    const nOT = 4;
+
+    for(let i=0; i<sArray.length; i++){
+
+        for(let j=0; j<nOT; j++){
+
+            rP = randomFloat(0.5, 0.7);
+
+            aB.sine(fund*sArray[i]*randomArrayValue([0.25, 0.5, 1, 2, 0.125]), 1).fill();
+            aB.ramp(0, 1, rP, rP, randomFloat(4, 12), randomFloat(4, 12)).multiply();
+
+        }
+
+        b.addBuffer( aB.buffer );
+
+    }
+
+    b.normalize(-1, 1);
+
+    c.setBuffer( b.buffer );
+
+    i.connect(c);
+    c.connect(output);
+    output.connect(masterGain);
+
+    i.startAtTime( globalNow+1 );
+
+}

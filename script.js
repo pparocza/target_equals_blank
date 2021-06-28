@@ -39,7 +39,8 @@ function runPatch(){
 		// insertTest();
 		// insertFXTest();
 		// bloomTest();
-		noiseSpliceTest();
+		// noiseSpliceTest();
+		bloomSchwaTest();
 
 }
 
