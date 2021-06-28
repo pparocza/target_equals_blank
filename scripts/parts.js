@@ -212,45 +212,30 @@ const bloomSchwaTest = () => {
 
 }
 
-const presetTest = () => {
+const noiseSpliceTest2 = () => {
 
     const output = new MyGain(16);
 
     const bL = 2;
-    const fund = 432*0.5;
+    const fund = 432*1;
 
     const b = new MyBuffer2(1, bL, audioCtx.sampleRate);
     const aB = new MyBuffer2(1, bL, audioCtx.sampleRate);
     const sB = new MyBuffer(1, bL, audioCtx.sampleRate);
     const c = new MyConvolver(1, bL, audioCtx.sampleRate);
     
-    const i = new MyBuffer2(1, bL, audioCtx.sampleRate);
-    i.impulse().add();
-    i.playbackRate = 1;
+    const impulse = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    impulse.impulse().add();
+    impulse.playbackRate = 1;
 
-    // i.playbackRate = 1;
-/*
-    let rP = 0;
-
-    for(let i=0; i<8; i++){
-
-        rP = randomFloat(0.5, 0.7);
-
-        aB.sine(fund*randomArrayValue([1, 2, 4, 8])*randomArrayValue([1, M2, M3, P4, P5, M6]), 1).fill();
-        aB.ramp(0, 1, rP, rP, randomFloat(4, 12), randomFloat(4, 12)).multiply();
-
-        b.addBuffer( aB.buffer );
-
-    }
-*/
-
-    const sL = 30;
+    const sL = 16;
 
     for(let i=0; i<sL; i++){
 
         aB.noise().fill();
+        aB.ramp(0, 1/sL, 0.01, 0.015, 0.1, 8).multiply();
         aB.constant(randomFloat(0.01, 0.25)).multiply();
-        b.spliceBuffer(aB.buffer, i/sL, (i+1)/sL, i/sL);
+        b.spliceBuffer(aB.buffer, 0, 1/sL, i/sL);
 
     }
 
@@ -258,10 +243,25 @@ const presetTest = () => {
 
     c.setBuffer( b.buffer );
 
-    i.connect(c);
+    bufferGraph(c.buffer);
+
+    impulse.connect(c);
     c.connect(output);
     output.connect(masterGain);
 
-    i.startAtTime( globalNow+1 );
+    const oSL = 20;
+
+    let oSeq = new Sequence();
+    oSeq.randomSelect(oSL, [0.25, 0.5, 0.75, 1]);
+    oSeq.sumSequence();
+    oSeq.add(globalNow);
+    
+    oSeq = oSeq.sequence;
+
+    for(let i=0; i<oSeq.length; i++){
+
+        impulse.startAtTime(oSeq[i]);
+
+    }
 
 }
