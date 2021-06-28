@@ -275,19 +275,24 @@ const presetSpliceTest = () => {
 
     const b = new MyBuffer2(1, bL, audioCtx.sampleRate);
     const aB = new MyBuffer2(1, bL, audioCtx.sampleRate);
-    const sB = new MyBuffer(1, bL, audioCtx.sampleRate);
+    const sB = new MyBuffer2(1, bL, audioCtx.sampleRate);
     const c = new MyConvolver(1, bL, audioCtx.sampleRate);
     
     const impulse = new MyBuffer2(1, bL, audioCtx.sampleRate);
     impulse.impulse().add();
     impulse.playbackRate = 1;
 
+    const p = new PitchedPresets();
+    p.pitch38();
+
+    b.spliceBuffer( p.b1.buffer, 0, 1, 0 );
+    b.spliceBuffer( p.b1.buffer, 0, 1, 0.5);
 
     b.normalize(-1, 1);
 
     c.setBuffer( b.buffer );
 
-    bufferGraph(c.buffer);
+    bufferGraph( c.buffer );
 
     impulse.connect(c);
     c.connect(output);

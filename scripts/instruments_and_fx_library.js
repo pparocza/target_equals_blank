@@ -9489,7 +9489,7 @@ MyBuffer2.prototype = {
 
 		this.cL = this.cEP-this.cSP;
 
-		this.nSP = parseInt(this.otherBuffer.length*this.newStart);
+		this.nSP = parseInt(this.buffer.length*this.newStart);
 
 		this.cA = [];
 
