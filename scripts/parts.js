@@ -89,7 +89,8 @@ const bloomTest = () => {
     
     const i = new MyBuffer2(1, bL, audioCtx.sampleRate);
     i.impulse().add();
-    i.playbackRate = 1;
+    i.playbackRate = 1.75;
+    i.loop = true;
 
     let rP = 0;
 
@@ -103,6 +104,13 @@ const bloomTest = () => {
         aB.ramp(0, 1, rP, rP, randomFloat(4, 12), randomFloat(4, 12)).multiply();
 
         b.addBuffer( aB.buffer );
+
+        for(let j=0; j<4; j++){
+            
+            aB.sine(fund*randomArrayValue([1, 2, 4, 8])*randomArrayValue(cArray)*randomFloat(0.99, 1.01), 1).fill();
+            b.spliceBuffer(aB.buffer, i/8, i+1/8, i/8);
+
+        }
 
     }
 
