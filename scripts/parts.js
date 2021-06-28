@@ -99,7 +99,7 @@ const bloomTest = () => {
 
         rP = randomFloat(0.5, 0.7);
 
-        aB.sine(fund*randomArrayValue([1, 2, 4, 8])*randomArrayValue(cArray), 1).fill();
+        aB.sine(fund*randomArrayValue([1, 2, 4, 8])*randomArrayValue(cArray)*randomFloat(0.99, 1.01), 1).fill();
         aB.ramp(0, 1, rP, rP, randomFloat(4, 12), randomFloat(4, 12)).multiply();
 
         b.addBuffer( aB.buffer );
