@@ -266,12 +266,11 @@ const noiseSpliceTest2 = () => {
 
 }
 
-const presetSpliceTest = () => {
+const presetSpliceTest = (startTime, spliceDiv, fund) => {
 
-    const output = new MyGain(64);
+    const output = new MyGain(32);
 
     const bL = 2;
-    const fund = 432*1;
 
     const b = new MyBuffer2(1, bL, audioCtx.sampleRate);
     const aB = new MyBuffer2(1, bL, audioCtx.sampleRate);
@@ -280,7 +279,7 @@ const presetSpliceTest = () => {
     
     const impulse = new MyBuffer2(1, 1, audioCtx.sampleRate);
     impulse.impulse().add();
-    impulse.playbackRate = 1;
+    impulse.playbackRate = 0.5;
     impulse.loop = true;
 
     const p = new PitchedPresets();
@@ -289,20 +288,22 @@ const presetSpliceTest = () => {
     ];
     let sP = 0;
 
-    for(let i=0; i<20; i++){
+    let nS = spliceDiv;
+
+    for(let i=0; i<nS; i++){
         
-        sP = randomFloat(0, 0.7);
+        sP = randomFloat(0, 1-(1/nS));
 
-        p['pitch' + (i+20) ]();
+        p['pitch36'](fund);
 
-        b.spliceBuffer( p.b1.buffer, sP, sP+randomFloat(0.1, 0.3), randomFloat(0, 0.7));
+        b.spliceBuffer( p.b1.buffer, sP, sP+(1/nS), i/nS);
 
         b.normalize(-1, 1);
 
     }
 
     b.normalize(-1, 1);
-    b.movingAverage(16);
+    b.movingAverage(32);
 
     c.setBuffer( b.buffer );
 
@@ -312,6 +313,6 @@ const presetSpliceTest = () => {
     c.connect(output);
     output.connect(masterGain);
 
-    impulse.startAtTime( globalNow+ 1 );
+    impulse.startAtTime( globalNow + startTime );
 
 }

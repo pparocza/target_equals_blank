@@ -5150,7 +5150,7 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 36 (wobble heaven key)
-	pitch36: function(){
+	pitch36: function(fund){
 
 		this.duration = 1;
 
@@ -5160,7 +5160,7 @@ PitchedPresets.prototype = {
 		this.b2 = new MyBuffer(1, 1, audioCtx.sampleRate);
 		this.b1.playbackRate = this.rate;
 
-		this.fund = 0.5*400/m2/P5;
+		this.fund = fund;
 
 		this.intA = [1, 2.405797, 3.608695652173913];
 		this.nHA =  [3, 5, 3];
@@ -5188,8 +5188,6 @@ PitchedPresets.prototype = {
 			this.b1.connect(this.output);
 
 			this.startArray = [this.b1];
-
-			bufferGraph(this.b1.buffer);
 
 		},
 
