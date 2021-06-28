@@ -7,13 +7,24 @@ setTimeout(function(){bufferLoaded();}, 1000);
 
 function bufferLoaded(){
 
-	var gain = audioCtx.createGain();
+	const gain = audioCtx.createGain();
 	gain.gain.value = 1;
+
+	const c = new MyConvolver(2, 2, audioCtx.sampleRate);
+	const cB = new MyBuffer2(2, 2, audioCtx.sampleRate);
+	cB.noise().fill();
+	cB.ramp(0, 1, 0.01, 0.015, 0.5, 4).multiply();
+
+	c.setBuffer( cB.buffer );
 
 	fadeFilter = new FilterFade(0);
 
 	masterGain = audioCtx.createGain();
+
 	masterGain.connect(gain);
+	masterGain.connect(c.input);
+
+	c.connect(gain);
 	gain.connect(fadeFilter.input);
 	fadeFilter.connect(audioCtx.destination);
 
