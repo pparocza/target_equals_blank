@@ -9007,6 +9007,24 @@ MyBuffer2.prototype = {
 
 	},
 
+	insert: function(insertStart, insertEnd){
+
+		const startSample = parseInt( this.buffer.length * insertStart );
+		const endSample = parseInt( this.buffer.length * insertEnd );
+
+		for (this.channel = 0; this.channel<this.buffer.numberOfChannels; this.channel++){
+			this.nowBuffering = this.buffer.getChannelData(this.channel);
+			for (let i=0; i<this.buffer.length; i++){
+				
+				if( i > startSample && i < endSample ){
+					this.nowBuffering[i] = this.shape[i];
+				}
+			
+			}
+		}
+
+	},
+
 	add: function(){
 
 		for (this.channel = 0; this.channel<this.buffer.numberOfChannels; this.channel++){
@@ -9056,6 +9074,16 @@ MyBuffer2.prototype = {
 			
 			}
 		}
+
+	},
+
+	impulse: function(){
+
+		for(let i=0; i<this.shape.length; i++){
+			this.shape[i] = i == 0 ? 1 : 0;
+		}
+
+		return this;
 
 	},
 

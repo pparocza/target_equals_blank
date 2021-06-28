@@ -36,6 +36,8 @@ function runPatch(){
 		fadeFilter.start(1, 50);
 		globalNow = audioCtx.currentTime;
 
+		insertTest();
+
 
 }
 
