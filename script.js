@@ -36,17 +36,7 @@ function runPatch(){
 		fadeFilter.start(1, 50);
 		globalNow = audioCtx.currentTime;
 
-		// insertTest();
-		// insertFXTest();
-		// bloomTest();
-		// noiseSpliceTest();
-		// noiseSpliceTest2();
-		// bloomSchwaTest();
-		presetSpliceTest(0, 10, 1*400/m2/P5);
-		presetSpliceTest(8, 20, 1*400/m2/P5);
-		presetSpliceTest(16, 5, 0.5*400/m2/P5);
-		presetSpliceTest(24, 3, 2*400/m2/P5);
-		presetSpliceTest(28, 4, M2*2*400/m2/P5);
+		presetSpliceSection();
 
 }
 
