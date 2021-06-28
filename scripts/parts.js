@@ -265,3 +265,34 @@ const noiseSpliceTest2 = () => {
     }
 
 }
+
+const presetSpliceTest = () => {
+
+    const output = new MyGain(16);
+
+    const bL = 2;
+    const fund = 432*1;
+
+    const b = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    const aB = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    const sB = new MyBuffer(1, bL, audioCtx.sampleRate);
+    const c = new MyConvolver(1, bL, audioCtx.sampleRate);
+    
+    const impulse = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    impulse.impulse().add();
+    impulse.playbackRate = 1;
+
+
+    b.normalize(-1, 1);
+
+    c.setBuffer( b.buffer );
+
+    bufferGraph(c.buffer);
+
+    impulse.connect(c);
+    c.connect(output);
+    output.connect(masterGain);
+
+    impulse.startAtTime( globalNow+ 1 );
+
+}
