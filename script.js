@@ -37,8 +37,8 @@ function runPatch(){
 		globalNow = audioCtx.currentTime;
 
 		// insertTest();
-		insertFXTest();
-
+		// insertFXTest();
+		bloomTest();
 
 }
 
