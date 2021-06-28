@@ -268,7 +268,7 @@ const noiseSpliceTest2 = () => {
 
 const presetSpliceTest = () => {
 
-    const output = new MyGain(16);
+    const output = new MyGain(64);
 
     const bL = 2;
     const fund = 432*1;
@@ -278,17 +278,31 @@ const presetSpliceTest = () => {
     const sB = new MyBuffer2(1, bL, audioCtx.sampleRate);
     const c = new MyConvolver(1, bL, audioCtx.sampleRate);
     
-    const impulse = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    const impulse = new MyBuffer2(1, 1, audioCtx.sampleRate);
     impulse.impulse().add();
     impulse.playbackRate = 1;
+    impulse.loop = true;
 
     const p = new PitchedPresets();
-    p.pitch38();
+    const presetArray = [
+        'pitch37', 'pitch39', 'pitch34', 'pitch35', 'pitch33'
+    ];
+    let sP = 0;
 
-    b.spliceBuffer( p.b1.buffer, 0, 1, 0 );
-    b.spliceBuffer( p.b1.buffer, 0, 1, 0.5);
+    for(let i=0; i<20; i++){
+        
+        sP = randomFloat(0, 0.7);
+
+        p['pitch' + (i+20) ]();
+
+        b.spliceBuffer( p.b1.buffer, sP, sP+randomFloat(0.1, 0.3), randomFloat(0, 0.7));
+
+        b.normalize(-1, 1);
+
+    }
 
     b.normalize(-1, 1);
+    b.movingAverage(16);
 
     c.setBuffer( b.buffer );
 
