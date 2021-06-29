@@ -270,7 +270,7 @@ const pitchedPresetSpliceTest = (startTime, stopTime, spliceDiv, fund, pArray, g
 
     const output = new MyGain(gainVal);
 
-    const bL = 2;
+    const bL = 1;
 
     const b = new MyBuffer2(1, bL, audioCtx.sampleRate);
     const aB = new MyBuffer2(1, bL, audioCtx.sampleRate);
@@ -280,11 +280,8 @@ const pitchedPresetSpliceTest = (startTime, stopTime, spliceDiv, fund, pArray, g
     const impulse = new MyBuffer2(1, 1, audioCtx.sampleRate);
     impulse.impulse().add();
     impulse.constant(64).multiply();
-    impulse.playbackRate = 1/bL;
+    impulse.playbackRate = 1;
     impulse.loop = true;
-
-    // const impulse = new PitchedPresets;
-    // impulse.pitch39();
 
     const p = new PitchedPresets();
 
@@ -298,22 +295,23 @@ const pitchedPresetSpliceTest = (startTime, stopTime, spliceDiv, fund, pArray, g
 
         p[randomArrayValue(pArray)](fund);
 
-        b.spliceBuffer( p.b1.buffer, sP, sP+(1/nS), i/nS);
+        b.spliceBuffer( p.b1.buffer, sP, sP+(1/(nS*randomFloat(0.95, 1))), i/nS);
 
         // b.normalize(-1, 1);
 
     }
 
     b.normalize(-1, 1);
-    b.movingAverage(32);
+    b.movingAverage(36);
 
     c.setBuffer( b.buffer );
 
-    impulse.connect(c);
-    c.connect(output);
-    output.connect(masterGain);
+    const f = new MyBiquad("highpass", 10, 1);
 
-    bufferGraph(c.buffer);
+    impulse.connect(c);
+    c.connect(f);
+    f.connect(output);
+    output.connect(masterGain);
 
     impulse.startAtTime( globalNow + startTime );
     
@@ -493,6 +491,8 @@ const mixedPresetSpliceTest = (startTime, stopTime, spliceDiv, fund, pitchArray,
 
 //
 
+const convolverFactoryArray = [];
+
 const pitchedConvolverFactory = (startTime, stopTime, spliceDiv, fund, pArray, gainVal) => {
 
     const output = new MyGain(gainVal);
@@ -503,15 +503,6 @@ const pitchedConvolverFactory = (startTime, stopTime, spliceDiv, fund, pArray, g
     const aB = new MyBuffer2(1, bL, audioCtx.sampleRate);
     const sB = new MyBuffer2(1, bL, audioCtx.sampleRate);
     const c = new MyConvolver(1, bL, audioCtx.sampleRate);
-    
-    const impulse = new MyBuffer2(1, 1, audioCtx.sampleRate);
-    impulse.impulse().add();
-    impulse.constant(64).multiply();
-    impulse.playbackRate = 0.5;
-    impulse.loop = true;
-
-    // const impulse = new PitchedPresets;
-    // impulse.pitch39();
 
     const p = new PitchedPresets();
 
@@ -532,7 +523,7 @@ const pitchedConvolverFactory = (startTime, stopTime, spliceDiv, fund, pArray, g
     }
 
     b.normalize(-1, 1);
-    b.movingAverage(32);
+    b.movingAverage(64);
 
     c.setBuffer( b.buffer );
 

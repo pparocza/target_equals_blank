@@ -4206,11 +4206,11 @@ PitchedPresets.prototype = {
 	},
 
 	// preset14 (wave sequence pad)
-	pitch14: function(){
+	pitch14: function(fund){
 
 		this.duration = 8;
 
-		this.fund = 432*m2*P4*4;
+		this.fund = fund;
 		this.iArray = [1/m2, 1, 1/P4, 1/m6];
 
 		this.b1 = new MyBuffer(1, 1, audioCtx.sampleRate);
@@ -4488,11 +4488,11 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 20 (am chord)
-	pitch20: function(){
+	pitch20: function(fund){
 
 		this.duration = 1;
 
-		this.fund = 432;
+		this.fund = fund;
 		this.rate = 1;
 
 		this.b1 = new MyBuffer(1, 1, audioCtx.sampleRate);
