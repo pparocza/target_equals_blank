@@ -57,10 +57,12 @@ function runPatch(){
 		fadeFilter.start(1, 50);
 		globalNow = audioCtx.currentTime;
 
-		pitchedPresetSpliceSection();
+		// pitchedPresetSpliceSection();
 		// percussionPresetSpliceSection();
 		// fxPresetSpliceSection();
 		// mixedPresetSpliceSection();
+
+		coolProgression();
 
 }
 
