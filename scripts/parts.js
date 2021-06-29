@@ -266,9 +266,9 @@ const noiseSpliceTest2 = () => {
 
 }
 
-const pitchedPresetSpliceTest = (startTime, stopTime, spliceDiv, fund, preset) => {
+const pitchedPresetSpliceTest = (startTime, stopTime, spliceDiv, fund, preset, gainVal) => {
 
-    const output = new MyGain(32);
+    const output = new MyGain(gainVal);
 
     const bL = 2;
 
