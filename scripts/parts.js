@@ -473,7 +473,7 @@ const mixedPresetSpliceTest = (startTime, stopTime, spliceDiv, fund, pitchArray,
     }
 
     b.normalize(-1, 1);
-    b.movingAverage(32);
+    b.movingAverage(64);
 
     c.setBuffer( b.buffer );
 

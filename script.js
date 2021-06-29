@@ -16,7 +16,7 @@ function bufferLoaded(){
 	cB.ramp(0, 1, 0.01, 0.015, 0.5, 4).multiply();
 
 	c.setBuffer( cB.buffer );
-	c.output.gain.value = 0;
+	c.output.gain.value = 0.25;
 
 	var d = new Effect();
 	d.stereoDelay(0.5, 0.5, 0.1, 1);

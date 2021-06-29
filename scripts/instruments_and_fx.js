@@ -5480,11 +5480,11 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 44 (detune fm pad)
-	pitch44: function(){
+	pitch44: function(fund){
 
 		this.duration = 4;
 
-		this.fund = 300.9734898397411*1;
+		this.fund = fund;
 
 		this.b1 = new MyBuffer(1, 1, audioCtx.sampleRate);
 		this.b2 = new MyBuffer(1, 1, audioCtx.sampleRate);
@@ -5520,9 +5520,9 @@ PitchedPresets.prototype = {
 	},
 
 	// preset45 (sine formants)
-	pitch45: function(){
+	pitch45: function(fund){
 
-		this.fund = 300.9734898397411*1;
+		this.fund = fund;
 
 		this.duration = 1;
 
@@ -5563,9 +5563,9 @@ PitchedPresets.prototype = {
 	},
 
 	// preset46 (sine formant key)
-	pitch46: function(){
+	pitch46: function(fund){
 
-		this.fund = 300.9734898397411*1;
+		this.fund = fund;
 
 		this.duration = 1;
 
@@ -5606,7 +5606,7 @@ PitchedPresets.prototype = {
 	},
 
 	// preset47 (splice pad)
-	pitch47: function(){
+	pitch47: function(fund){
 
 		this.duration = 1;
 
@@ -5620,7 +5620,7 @@ PitchedPresets.prototype = {
 
 		this.b1.makeConstant(0);
 
-		this.fund = 300;
+		this.fund = fund;
 		this.nSA = [100, 100, 100];
 		this.fA = [1, 4.75, 6.375];
 

@@ -2,7 +2,7 @@ const pitchedPresetSpliceSection = () => {
 
     pitchedPresetSpliceTest(0,  16, 9, 0.5*400/m2/P5, 
         [
-            'pitch35', 'pitch29', 'pitch7', 'pitch9'
+            'pitch35', 'pitch29', 'pitch7', 'pitch9', 'pitch60'
         ], 
     1);
 
