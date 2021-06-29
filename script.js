@@ -62,7 +62,8 @@ function runPatch(){
 		// fxPresetSpliceSection();
 		// mixedPresetSpliceSection();
 
-		coolProgression();
+		// coolProgression();
+		coolProgressionTest1();
 
 }
 

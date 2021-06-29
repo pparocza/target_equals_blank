@@ -1,7 +1,5 @@
 const pitchedPresetSpliceSection = () => {
 
-    const fund = 0.5*400/m2/P5;
-
     // 
 
     //
@@ -50,6 +48,8 @@ const mixedPresetSpliceSection = () => {
 }
 
 const coolProgression = () => {
+
+    const fund = 0.5*400/m2/P5;
 
     pitchedPresetSpliceTest(0,  8, 2, fund, ['pitch29'], 2);
 
@@ -112,5 +112,13 @@ const coolProgression = () => {
 
     pitchedPresetSpliceTest(120,  128, 3, (1/P4)*fund, ['pitch29'], 2);
     pitchedPresetSpliceTest(120,  128, 5, (1/M2)*fund, ['pitch35'], 2);
+
+}
+
+const coolProgressionTest1 = () => {
+
+    const fund = 0.5*400/m2/P5;
+
+    pitchedPresetSpliceTest(0,  8, 2, fund, ['pitch29', 'pitch1'], 2);
 
 }
