@@ -266,7 +266,7 @@ const noiseSpliceTest2 = () => {
 
 }
 
-const pitchedPresetSpliceTest = (startTime, stopTime, spliceDiv, fund) => {
+const pitchedPresetSpliceTest = (startTime, stopTime, spliceDiv, fund, preset) => {
 
     const output = new MyGain(32);
 
@@ -292,7 +292,7 @@ const pitchedPresetSpliceTest = (startTime, stopTime, spliceDiv, fund) => {
         
         sP = randomFloat(0, 1-(1/nS));
 
-        p['pitch36'](fund);
+        p[preset](fund);
 
         b.spliceBuffer( p.b1.buffer, sP, sP+(1/nS), i/nS);
 

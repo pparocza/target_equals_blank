@@ -5105,7 +5105,7 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 35 (beautiful rich)
-	pitch35: function(){
+	pitch35: function(fund){
 
 		this.rate = 0.125;
 
@@ -5113,7 +5113,7 @@ PitchedPresets.prototype = {
 		this.b2 = new MyBuffer(1, 1, audioCtx.sampleRate);
 		this.b1.playbackRate = this.rate;
 
-		this.fund = 400/P4*0.5;
+		this.fund = fund;
 
 		this.intA = [1, 3, 5];
 		this.nHA =  [4, 4, 4];
@@ -5142,8 +5142,6 @@ PitchedPresets.prototype = {
 		this.b1.connect(this.output);
 
 		this.startArray = [this.b1];
-
-		bufferGraph(this.b1.buffer);
 
 	},
 
