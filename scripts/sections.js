@@ -1,6 +1,22 @@
 const pitchedPresetSpliceSection = () => {
 
-    pitchedPresetSpliceTest(0,  48, 10, 1*400/m2/P5, 'pitch36', 32);
+    pitchedPresetSpliceTest(0,  16, 10, 0.5*400/m2/P5, 
+        [
+            /*'pitch36', 'pitch35',*/ 'pitch31', 'pitch30', 'pitch29', 'pitch27', 'pitch63'
+        ], 
+        1);
+
+    pitchedPresetSpliceTest(16, 24, 10, 0.5*400/m2/P5/M2, 
+        [
+            /*'pitch36', 'pitch35',*/ 'pitch31', 'pitch30', 'pitch29', 'pitch27', 'pitch63'
+        ], 
+        1);
+
+    pitchedPresetSpliceTest(24,  40, 10, 0.5*400/m2/P5, 
+        [
+            /*'pitch36', 'pitch35',*/ 'pitch31', 'pitch30', 'pitch29', 'pitch27', 'pitch63'
+        ], 
+        1);
     
     // pitchedPresetSpliceTest(2,  48, 5, 0.5*400/m2/P5, 'pitch35', 32);
 

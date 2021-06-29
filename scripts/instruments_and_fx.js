@@ -4771,7 +4771,7 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 27 (warm pad 2)
-	pitch27: function(){
+	pitch27: function(fund){
 
 		this.duration = 4;
 
@@ -4780,7 +4780,7 @@ PitchedPresets.prototype = {
 		this.b1 = new MyBuffer(1, 1, audioCtx.sampleRate);
 		this.b1.playbackRate = this.rate;
 
-		this.fund = 400;
+		this.fund = fund;
 
 		this.intA = [1, 1.5];
 		this.nHA =  [3, 5];
@@ -4804,8 +4804,6 @@ PitchedPresets.prototype = {
 			this.b1.connect(this.output);
 
 			this.startArray = [this.b1];
-
-			bufferGraph(this.b1.buffer);
 
 		},
 
@@ -4849,7 +4847,7 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 29 (heaven pad)
-	pitch29: function(){
+	pitch29: function(fund){
 
 		this.duration = 1;
 
@@ -4858,7 +4856,7 @@ PitchedPresets.prototype = {
 		this.b1 = new MyBuffer(1, 1, audioCtx.sampleRate);
 		this.b1.playbackRate = this.rate;
 
-		this.fund = 400/m2/P5;
+		this.fund = fund;
 
 		this.intA = [1, 2.405797, 3.608695652173913];
 		this.nHA =  [3, 5, 3];
@@ -4883,14 +4881,12 @@ PitchedPresets.prototype = {
 
 		this.startArray = [this.b1];
 
-		bufferGraph(this.b1.buffer);
-
 	},
 
 	// preset 30 (sequence shape mallet)
-	pitch30: function(){
+	pitch30: function(fund){
 
-	this.fund = 400/m2/P5;
+	this.fund = fund;
 
 	this.b1 = new MyBuffer(1, 1, audioCtx.sampleRate);
 	this.b2 = new MyBuffer(1, 1, audioCtx.sampleRate);
@@ -4934,9 +4930,9 @@ PitchedPresets.prototype = {
 },
 
 	// preset 31 (sequence shape horn)
-	pitch31: function(){
+	pitch31: function(fund){
 
-		this.fund = 400/m2/P5;
+		this.fund = fund;
 
 		this.b1 = new MyBuffer(1, 1, audioCtx.sampleRate);
 		this.b2 = new MyBuffer(1, 1, audioCtx.sampleRate);
@@ -5013,8 +5009,6 @@ PitchedPresets.prototype = {
 		this.b1.connect(this.output);
 
 		this.startArray = [this.b1];
-
-		bufferGraph(this.b1.buffer);
 
 	},
 
@@ -6406,9 +6400,9 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 63 (shaped splice pad)
-	pitch63: function(){
+	pitch63: function(fund){
 
-		this.fund = 460.83248321310566*0.5;
+		this.fund = fund;
 
 		this.b1 = new MyBuffer(1, 1, audioCtx.sampleRate);
 	  this.b2 = new MyBuffer(1, 1, audioCtx.sampleRate);
