@@ -266,7 +266,7 @@ const noiseSpliceTest2 = () => {
 
 }
 
-const presetSpliceTest = (startTime, stopTime, spliceDiv, fund) => {
+const pitchedPresetSpliceTest = (startTime, stopTime, spliceDiv, fund) => {
 
     const output = new MyGain(32);
 
@@ -293,6 +293,54 @@ const presetSpliceTest = (startTime, stopTime, spliceDiv, fund) => {
         sP = randomFloat(0, 1-(1/nS));
 
         p['pitch36'](fund);
+
+        b.spliceBuffer( p.b1.buffer, sP, sP+(1/nS), i/nS);
+
+        b.normalize(-1, 1);
+
+    }
+
+    b.normalize(-1, 1);
+    b.movingAverage(32);
+
+    c.setBuffer( b.buffer );
+
+    impulse.connect(c);
+    c.connect(output);
+    output.connect(masterGain);
+
+    impulse.startAtTime( globalNow + startTime );
+    impulse.stopAtTime( globalNow + stopTime );
+
+}
+
+const percussionPresetSpliceTest = (startTime, stopTime, spliceDiv, preset, gainVal) => {
+
+    const output = new MyGain(gainVal);
+
+    const bL = 2;
+
+    const b = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    const aB = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    const sB = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    const c = new MyConvolver(1, bL, audioCtx.sampleRate);
+    
+    const impulse = new MyBuffer2(1, 1, audioCtx.sampleRate);
+    impulse.impulse().add();
+    impulse.playbackRate = 0.5;
+    impulse.loop = true;
+
+    const p = new PercussionPresets();
+
+    let sP = 0;
+
+    let nS = spliceDiv;
+
+    for(let i=0; i<nS; i++){
+        
+        sP = randomFloat(0, 1-(1/nS));
+
+        p[preset]();
 
         b.spliceBuffer( p.b1.buffer, sP, sP+(1/nS), i/nS);
 

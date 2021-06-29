@@ -1932,8 +1932,6 @@ PercussionPresets.prototype = {
 
 		this.startArray = [this.b1];
 
-		bufferGraph(this.b1.buffer);
-
 	},
 
 	// preset 31
