@@ -313,9 +313,11 @@ const pitchedPresetSpliceTest = (startTime, stopTime, spliceDiv, fund, pArray, g
     c.connect(output);
     output.connect(masterGain);
 
+    bufferGraph(c.buffer);
+
     impulse.startAtTime( globalNow + startTime );
     
-    output.gain.gain.setTargetAtTime(0, globalNow+stopTime, 0.25);
+    output.gain.gain.setTargetAtTime(0, globalNow+stopTime, 0.1);
 
     impulse.stopAtTime( globalNow + stopTime );
 
@@ -334,7 +336,8 @@ const percussionPresetSpliceTest = (startTime, stopTime, spliceDiv, preset, gain
     
     const impulse = new MyBuffer2(1, 1, audioCtx.sampleRate);
     impulse.impulse().add();
-    impulse.playbackRate = 0.5;
+    impulse.constant(64).multiply();
+    impulse.playbackRate = 1/bL;
     impulse.loop = true;
 
     const p = new PercussionPresets();
@@ -366,5 +369,141 @@ const percussionPresetSpliceTest = (startTime, stopTime, spliceDiv, preset, gain
 
     impulse.startAtTime( globalNow + startTime );
     impulse.stopAtTime( globalNow + stopTime );
+
+}
+
+const fxPresetSpliceTest = (startTime, stopTime, spliceDiv, pArray, gainVal) => {
+
+    const output = new MyGain(gainVal);
+
+    const bL = 2;
+
+    const b = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    const aB = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    const sB = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    const c = new MyConvolver(1, bL, audioCtx.sampleRate);
+    
+    const impulse = new MyBuffer2(1, 1, audioCtx.sampleRate);
+    impulse.impulse().add();
+    impulse.constant(64).multiply();
+    impulse.playbackRate = 1/bL;
+    impulse.loop = true;
+
+    const p = new FXPresets();
+
+    let sP = 0;
+
+    let nS = spliceDiv;
+
+    for(let i=0; i<nS; i++){
+        
+        sP = randomFloat(0, 1-(1/nS));
+
+        p[randomArrayValue(pArray)]();
+
+        b.spliceBuffer( p.b1.buffer, sP, sP+(1/nS), i/nS);
+
+        // b.normalize(-1, 1);
+
+    }
+
+    b.normalize(-1, 1);
+    b.movingAverage(32);
+
+    c.setBuffer( b.buffer );
+
+    impulse.connect(c);
+    c.connect(output);
+    output.connect(masterGain);
+
+    bufferGraph(c.buffer);
+
+    impulse.startAtTime( globalNow + startTime );
+    
+    output.gain.gain.setTargetAtTime(0, globalNow+stopTime, 0.1);
+
+    impulse.stopAtTime( globalNow + stopTime );
+
+}
+
+//
+
+const pitchedConvolverFactory = (startTime, stopTime, spliceDiv, fund, pArray, gainVal) => {
+
+    const output = new MyGain(gainVal);
+
+    const bL = 1;
+
+    const b = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    const aB = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    const sB = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    const c = new MyConvolver(1, bL, audioCtx.sampleRate);
+    
+    const impulse = new MyBuffer2(1, 1, audioCtx.sampleRate);
+    impulse.impulse().add();
+    impulse.constant(64).multiply();
+    impulse.playbackRate = 0.5;
+    impulse.loop = true;
+
+    // const impulse = new PitchedPresets;
+    // impulse.pitch39();
+
+    const p = new PitchedPresets();
+
+    let sP = 0;
+
+    let nS = spliceDiv;
+
+    for(let i=0; i<nS; i++){
+        
+        sP = randomFloat(0, 1-(1/nS));
+
+        p[randomArrayValue(pArray)](fund);
+
+        b.spliceBuffer( p.b1.buffer, sP, sP+(1/nS), i/nS);
+
+        // b.normalize(-1, 1);
+
+    }
+
+    b.normalize(-1, 1);
+    b.movingAverage(32);
+
+    c.setBuffer( b.buffer );
+
+    impulse.connect(c);
+    c.connect(output);
+    output.connect(masterGain);
+
+    bufferGraph(c.buffer);
+
+    impulse.startAtTime( globalNow + startTime );
+    
+    output.gain.gain.setTargetAtTime(0, globalNow+stopTime, 0.1);
+
+    impulse.stopAtTime( globalNow + stopTime );
+
+}
+
+const convolverPlayer = (convolverArray) => {
+
+    const sL = 20;
+
+    const oSeq = new Sequence();
+    oSeq.randomSelect(sL, [1, 2, 0.25, 0.5]);
+    oSeq = oSeq.sequence;
+
+    const impulse = new MyBuffer2(1, 1, audioCtx.sampleRate);
+    impulse.impulse().add();
+    impulse.constant(64).multiply();
+    impulse.playbackRate = 0.5;
+    impulse.loop = true;
+
+    for(let i=0; i<oSeq.length; i++){
+
+        
+
+    }
+
 
 }

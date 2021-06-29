@@ -3837,11 +3837,11 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 4 (bell key)
-	pitch4: function(){
+	pitch4: function(fund){
 
 		this.duration = 1;
 
-		this.fund = 432*1;
+		this.fund = fund;s
 		this.rate = 1.25;
 		this.cFA = [100, 1];
 		this.mFA = [100, 3];
@@ -3874,11 +3874,11 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 5
-	pitch5: function(){
+	pitch5: function(fund){
 
 		this.duration = 1;
 
-		this.fund = 432*1;
+		this.fund = fund*8;
 		this.rate = 1;
 		this.cFA = [0.1];
 		this.mFA = [0.5];
@@ -3912,11 +3912,11 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 6 (bass)
-	pitch6: function(){
+	pitch6: function(fund){
 
 		this.duration = 1;
 
-		this.fund = 432*1;
+		this.fund = fund*1;
 		this.rate = 1;
 		this.cFA = [0.1];
 		this.mFA = [0.2];
@@ -3950,11 +3950,11 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 7 (pad)
-	pitch7: function(){
+	pitch7: function(fund){
 
 		this.duration = 8;
 
-		this.fund = 500/M2;
+		this.fund = fund;
 		this.rate = 0.125;
 		this.cFA = [1, 3, 5, 4];
 		this.mFA = [1, 3, 5, 4];
@@ -3986,18 +3986,14 @@ PitchedPresets.prototype = {
 
 		this.startArray = [this.b1];
 
-		bufferGraph(this.b1.buffer);
-
-		console.log("pitched preset 7");
-
 	},
 
 	// preset 8 ("i" bell)
-	pitch8: function(){
+	pitch8: function(fund){
 
 		this.duration = 1;
 
-		this.fund = 500;
+		this.fund = fund;
 		this.rate = 2;
 		this.cFA = [1, 9.10714286, 10.3571429];
 		this.mFA = [1, 9.10714286, 10.3571429];
@@ -4031,11 +4027,11 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 9 (short key)
-	pitch9: function(){
+	pitch9: function(fund){
 
 		this.duration = 1;
 
-		this.fund = 500;
+		this.fund = fund;
 		this.rate = 2;
 		this.cFA = [1, 4.75, 6.375];
 		this.mFA = [1, 9.10714286, 10.3571429];
@@ -6738,9 +6734,9 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 69 (fm bell dot)
-	pitch69: function(){
+	pitch69: function(fund){
 
-		this.fund = 432*1;
+		this.fund = fund;
 
 		this.cF = 1*this.fund;
 		this.mF = 3.1*this.fund;
@@ -7525,8 +7521,6 @@ FXPresets.prototype = {
 
 		this.startArray = [this.b1];
 
-		bufferGraph(this.b1.buffer);
-
 		console.log("fx preset 13");
 
 	},
@@ -7869,8 +7863,6 @@ FXPresets.prototype = {
 
 		this.startArray = [this.b1];
 
-		console.log("fx preset 22");
-
 	},
 
 	// preset 23
@@ -7934,21 +7926,15 @@ FXPresets.prototype = {
 		this.b2.makeFm(432*2, 432, 1);
 		this.b2.applyRamp(0, 0.75, 0.25, 0.5, 1, 1);
 
-		bufferGraph(this.b2.buffer);
-
 		this.b1.subtractBuffer(this.b2.buffer);
 
 		this.b2.makeFm(432*0.25, 432*0.1, 1);
 		this.b2.applyRamp(0, 1, 0.5, 0.5, 1, 1);
 		this.b2.multiply(0.1);
 
-		bufferGraph(this.b2.buffer);
-
 		this.b1.multiplyBuffer(this.b2.buffer);
 
 		this.b1.normalize(-1, 1);
-
-		bufferGraph(this.b1.buffer);
 
 		this.b1.connect(this.output);
 
@@ -8118,8 +8104,6 @@ FXPresets.prototype = {
 
 		this.startArray = [this.b1];
 
-		bufferGraph(this.b1.buffer);
-
 	},
 
 	// preset 29 (bouncing ball)
@@ -8207,8 +8191,6 @@ FXPresets.prototype = {
 		this.b1.normalize(-1, 1);
 
 		this.startArray = [this.b1];
-
-		bufferGraph(this.b1.buffer);
 
 	},
 

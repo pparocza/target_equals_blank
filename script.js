@@ -16,7 +16,12 @@ function bufferLoaded(){
 	cB.ramp(0, 1, 0.01, 0.015, 0.5, 4).multiply();
 
 	c.setBuffer( cB.buffer );
-	c.output.gain.value = 1;
+	c.output.gain.value = 0;
+
+	var d = new Effect();
+	d.stereoDelay(0.5, 0.5, 0.1, 1);
+	d.on();
+	d.output.gain.value = 0;
 
 	fadeFilter = new FilterFade(0);
 
@@ -24,8 +29,10 @@ function bufferLoaded(){
 
 	masterGain.connect(gain);
 	masterGain.connect(c.input);
+	masterGain.connect(d.input);
 
 	c.connect(gain);
+	d.connect(gain);
 	gain.connect(fadeFilter.input);
 	fadeFilter.connect(audioCtx.destination);
 
@@ -48,8 +55,9 @@ function runPatch(){
 		fadeFilter.start(1, 50);
 		globalNow = audioCtx.currentTime;
 
-		pitchedPresetSpliceSection();
+		// pitchedPresetSpliceSection();
 		// percussionPresetSpliceSection();
+		fxPresetSpliceSection();
 
 }
 
