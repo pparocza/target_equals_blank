@@ -18,15 +18,33 @@ const pitchedPresetSpliceSection = () => {
 
 const percussionPresetSpliceSection = () => {
 
-    percussionPresetSpliceTest(0, 48, 10,   'perc15', 1);
-    percussionPresetSpliceTest(8, 48, 5 ,   'perc15', 1);
-    percussionPresetSpliceTest(8, 48, 7 ,   'perc17', 1);
-    percussionPresetSpliceTest(16, 48, 14 , 'perc10', 1);
+    // percussionPresetSpliceTest(0, 48, 10,   ['perc15'], 0.25);
+    // percussionPresetSpliceTest(8, 48, 5 ,   ['perc15'], 0.25);
+    // percussionPresetSpliceTest(8, 48, 7 ,   ['perc17'], 0.25);
+    // percussionPresetSpliceTest(16, 48, 14 , ['perc10'], 0.25);
+
+    percussionPresetSpliceTest(0, 48, 7, 
+        [
+            'perc30', 'perc32'
+        ], 
+    1);
 
 }
 
 const fxPresetSpliceSection = () => {
 
     fxPresetSpliceTest(0, 48, 10, ['fx22', 'fx28', 'fx30'], 0.25);
+
+}
+
+const mixedPresetSpliceSection = () => {
+
+    mixedPresetSpliceTest(
+        0, 48, 10, 0.5*400/m2/P5,
+        ['pitch35'],
+        ['perc30'],
+        ['fx22'], 
+        0.25
+    );
 
 }

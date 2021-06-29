@@ -2001,10 +2001,7 @@ PercussionPresets.prototype = {
 
 		this.b1.connect(this.output);
 
-
 		this.startArray = [this.b1];
-
-		bufferGraph(this.b1.buffer);
 
 	},
 
@@ -2616,8 +2613,6 @@ PercussionPresets.prototype = {
 		this.d.connect(this.output);
 
 		this.startArray = [this.b1];
-
-		bufferGraph(this.b1.buffer);
 
 	},
 

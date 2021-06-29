@@ -323,7 +323,7 @@ const pitchedPresetSpliceTest = (startTime, stopTime, spliceDiv, fund, pArray, g
 
 }
 
-const percussionPresetSpliceTest = (startTime, stopTime, spliceDiv, preset, gainVal) => {
+const percussionPresetSpliceTest = (startTime, stopTime, spliceDiv, pArray, gainVal) => {
 
     const output = new MyGain(gainVal);
 
@@ -350,11 +350,11 @@ const percussionPresetSpliceTest = (startTime, stopTime, spliceDiv, preset, gain
         
         sP = randomFloat(0, 1-(1/nS));
 
-        p[preset]();
+        p[randomArrayValue(pArray)]();
 
         b.spliceBuffer( p.b1.buffer, sP, sP+(1/nS), i/nS);
 
-        b.normalize(-1, 1);
+        // b.normalize(-1, 1);
 
     }
 
@@ -366,6 +366,8 @@ const percussionPresetSpliceTest = (startTime, stopTime, spliceDiv, preset, gain
     impulse.connect(c);
     c.connect(output);
     output.connect(masterGain);
+
+    bufferGraph( c.buffer );
 
     impulse.startAtTime( globalNow + startTime );
     impulse.stopAtTime( globalNow + stopTime );
@@ -404,6 +406,69 @@ const fxPresetSpliceTest = (startTime, stopTime, spliceDiv, pArray, gainVal) => 
         b.spliceBuffer( p.b1.buffer, sP, sP+(1/nS), i/nS);
 
         // b.normalize(-1, 1);
+
+    }
+
+    b.normalize(-1, 1);
+    b.movingAverage(32);
+
+    c.setBuffer( b.buffer );
+
+    impulse.connect(c);
+    c.connect(output);
+    output.connect(masterGain);
+
+    bufferGraph(c.buffer);
+
+    impulse.startAtTime( globalNow + startTime );
+    
+    output.gain.gain.setTargetAtTime(0, globalNow+stopTime, 0.1);
+
+    impulse.stopAtTime( globalNow + stopTime );
+
+}
+
+const mixedPresetSpliceTest = (startTime, stopTime, spliceDiv, fund, pitchArray, percArray, fxArray, gainVal) => {
+
+    const output = new MyGain(gainVal);
+
+    const bL = 2;
+
+    const b = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    const aB = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    const sB = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    const c = new MyConvolver(1, bL, audioCtx.sampleRate);
+    
+    const impulse = new MyBuffer2(1, 1, audioCtx.sampleRate);
+    impulse.impulse().add();
+    impulse.constant(64).multiply();
+    impulse.playbackRate = 1/bL;
+    impulse.loop = true;
+
+    const p1 = new PitchedPresets();
+    const p2 = new PercussionPresets();
+    const p3 = new FXPresets();
+
+    let sP1 = 0;
+    let sP2 = 0;
+    let sP3 = 0;
+
+    let nS = spliceDiv;
+
+    for(let i=0; i<nS; i++){
+        
+        sP1 = randomFloat(0, 1-(1/nS));
+        sP2 = randomFloat(0, 1-(1/nS));
+        sP3 = randomFloat(0, 1-(1/nS));
+
+        p1[randomArrayValue(pitchArray)](fund);
+        p2[randomArrayValue(percArray)]();
+        p3[randomArrayValue(fxArray)]();
+
+        b.spliceBuffer( p1.b1.buffer, sP1, sP1+(1/nS), i/nS);
+        b.spliceBuffer( p2.b1.buffer, sP2, sP2+(1/nS), i/nS);
+        b.spliceBuffer( p3.b1.buffer, sP3, sP3+(1/nS), i/nS);
+
 
     }
 
