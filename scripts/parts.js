@@ -282,17 +282,22 @@ const pitchedPresetSpliceTest = (startTime, stopTime, spliceDiv, fund, preset, g
     impulse.playbackRate = 0.5;
     impulse.loop = true;
 
+    // const impulse = new PitchedPresets;
+    // impulse.pitch39();
+
     const p = new PitchedPresets();
 
     let sP = 0;
 
     let nS = spliceDiv;
 
+    const pArray = ['pitch36', 'pitch35'];
+
     for(let i=0; i<nS; i++){
         
         sP = randomFloat(0, 1-(1/nS));
 
-        p[preset](fund);
+        p[randomArrayValue(pArray)](fund);
 
         b.spliceBuffer( p.b1.buffer, sP, sP+(1/nS), i/nS);
 
@@ -304,6 +309,8 @@ const pitchedPresetSpliceTest = (startTime, stopTime, spliceDiv, fund, preset, g
     b.movingAverage(32);
 
     c.setBuffer( b.buffer );
+
+    bufferGraph( c.buffer );
 
     impulse.connect(c);
     c.connect(output);
