@@ -266,7 +266,7 @@ const noiseSpliceTest2 = () => {
 
 }
 
-const presetSpliceTest = (startTime, spliceDiv, fund) => {
+const presetSpliceTest = (startTime, stopTime, spliceDiv, fund) => {
 
     const output = new MyGain(32);
 
@@ -283,9 +283,7 @@ const presetSpliceTest = (startTime, spliceDiv, fund) => {
     impulse.loop = true;
 
     const p = new PitchedPresets();
-    const presetArray = [
-        'pitch37', 'pitch39', 'pitch34', 'pitch35', 'pitch33'
-    ];
+
     let sP = 0;
 
     let nS = spliceDiv;
@@ -307,12 +305,11 @@ const presetSpliceTest = (startTime, spliceDiv, fund) => {
 
     c.setBuffer( b.buffer );
 
-    bufferGraph( c.buffer );
-
     impulse.connect(c);
     c.connect(output);
     output.connect(masterGain);
 
     impulse.startAtTime( globalNow + startTime );
+    impulse.stopAtTime( globalNow + stopTime );
 
 }
