@@ -4626,7 +4626,7 @@ PitchedPresets.prototype = {
 		},
 
 	// preset 24
-	pitch24: function(){
+	pitch24: function(fund){
 
 		this.duration = 1;
 
@@ -4635,7 +4635,7 @@ PitchedPresets.prototype = {
 		this.b1 = new MyBuffer(1, 1, audioCtx.sampleRate);
 		this.b1.playbackRate = this.rate;
 
-		this.fund = 100;
+		this.fund = fund;
 
 		this.intA = [1, 1.7, 3];
 		this.nHA =  [1, 10, 11];
@@ -4662,7 +4662,7 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 25
-	pitch25: function(){
+	pitch25: function(fund){
 
 		this.duration = 1;
 
@@ -4671,7 +4671,7 @@ PitchedPresets.prototype = {
 		this.b1 = new MyBuffer(1, 1, audioCtx.sampleRate);
 		this.b1.playbackRate = this.rate;
 
-		this.fund = 100;
+		this.fund = fund;
 
 		this.intA = [1, 1.7];
 		this.nHA =  [3, 5];
@@ -4701,7 +4701,7 @@ PitchedPresets.prototype = {
 		},
 
 	// preset 26 (warm pad)
-	pitch26: function(){
+	pitch26: function(fund){
 
 		this.duration = 1;
 
@@ -4710,10 +4710,10 @@ PitchedPresets.prototype = {
 		this.b1 = new MyBuffer(1, 1, audioCtx.sampleRate);
 		this.b1.playbackRate = this.rate;
 
-		this.fund = 100;
+		this.fund = fund;
 
-		this.intA = [1, 1.7];
-		this.nHA =  [3, 5];
+		this.intA = [1, 2];
+		this.nHA =  [5, 3];
 		this.gA =   [1, 1];
 
 		for(var i=0; i<this.intA.length; i++){
@@ -4734,8 +4734,6 @@ PitchedPresets.prototype = {
 		this.b1.connect(this.output);
 
 		this.startArray = [this.b1];
-
-		bufferGraph(this.b1.buffer);
 
 	},
 
