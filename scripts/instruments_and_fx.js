@@ -4098,11 +4098,11 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 11 (rich bowl)
-	pitch11: function(){
+	pitch11: function(fund){
 
 		this.duration = 4;
 
-		this.fund = 250;
+		this.fund = fund;
 		this.rate = 0.25;
 		this.cFA = [1, 3.218181818181818, 4.527272727272727];
 		this.mFA = [10.3571429, 1, 9.10714286];
@@ -4136,11 +4136,11 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 12 (fm horn)
-	pitch12: function(){
+	pitch12: function(fund){
 
 		this.duration = 1;
 
-		this.fund = 432*m2*P4;
+		this.fund = fund;
 
 		this.b1 = new MyBuffer(1, 1, audioCtx.sampleRate);
 		this.b2 = new MyBuffer(1, 1, audioCtx.sampleRate);
@@ -4153,20 +4153,16 @@ PitchedPresets.prototype = {
 
 		this.b1.connect(this.output);
 
-		bufferGraph(this.b1.buffer);
-
 		this.startArray = [this.b1];
-
-		console.log("pitched preset 12");
 
 	},
 
 	// preset13 (cloud bowl)
-	pitch13: function(){
+	pitch13: function(fund){
 
 		this.duration = 1;
 
-		this.fund = 432*m2*P4*0.5;
+		this.fund = fund;
 
 		this.b1 = new MyBuffer(1, 1, audioCtx.sampleRate);
 		this.b2 = new MyBuffer(1, 1, audioCtx.sampleRate);
@@ -4200,8 +4196,6 @@ PitchedPresets.prototype = {
 		bufferGraph(this.b1.buffer);
 
 		this.startArray = [this.b1];
-
-		console.log("pitched preset 13");
 
 	},
 
@@ -4245,8 +4239,6 @@ PitchedPresets.prototype = {
 		this.b1.normalize(-1, 1);
 
 		this.b1.connect(this.output);
-
-		bufferGraph(this.b1.buffer);
 
 		this.startArray = [this.b1];
 
@@ -4369,11 +4361,11 @@ PitchedPresets.prototype = {
 	},
 
 	// preset17 (steel drum)
-	pitch17: function(){
+	pitch17: function(fund){
 
 		this.duration = 1;
 
-		this.fund = 432;
+		this.fund = fund;
 		this.rate = 1;
 		this.cArray = [1, 2, 4, P5*2];
 		this.mArray = [10, 5, 3, 4];

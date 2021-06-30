@@ -155,9 +155,11 @@ const presetPitchSequenceTests = () => {
     const fund = 0.25*400/m2/P5;
     const cArray = [1, M2, P4, M6];
 
-    // pitchedPresetSequenceSpliceTest(0, 8, 6 /*randomInt(10, 21)*/, 2*fund, [1, M2, M3, P4, P5, M6], ['pitch7', 'pitch4', 'pitch3', 'pitch8', 'pitch10'], 1);
+    pitchedPresetSequenceSpliceTest(0, 8, 5, 8*fund, [1, M2, M3, P4, P5, M6], ['pitch17'], 1);
+
+    // pitchedPresetSequenceSpliceTest(0, 8, 6, 2*fund, [1, M2, P4, M6], ['pitch7'], 1);
     
-    pitchedPresetSequenceSpliceTest(0, 16, randomInt(10, 12), 2*fund, [1, M3, P5, 2], ['pitch7', 'pitch4', 'pitch3', 'pitch8', 'pitch10'], 1);
+    // pitchedPresetSequenceSpliceTest(0, 16, randomInt(10, 12), 2*fund, [1, M3, P5, 2], ['pitch7', 'pitch4', 'pitch3', 'pitch8', 'pitch10'], 1);
     
     // pitchedPresetSequenceSpliceTest(16, 24, randomInt(10, 21), 2*fund, [1/M2, M2, P4, 2], ['pitch7'], 1);
 
