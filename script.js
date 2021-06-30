@@ -22,7 +22,7 @@ function bufferLoaded(){
 	let rI = randomInt(0, 2);
 	d.stereoDelay(0.66, 0.33, 0.2, 1);
 	d.on();
-	d.output.gain.value = 0.5;
+	d.output.gain.value = 0;
 
 	fadeFilter = new FilterFade(0);
 
@@ -32,7 +32,7 @@ function bufferLoaded(){
 	masterGain.connect(d.input);
 
 	masterGain.connect(gain);
-	// c.connect(gain);
+	c.connect(gain);
 	d.connect(gain);
 
 	gain.connect(fadeFilter.input);
