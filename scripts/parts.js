@@ -324,6 +324,65 @@ const pitchedPresetSpliceTest = (startTime, stopTime, spliceDiv, fund, pArray, g
 
 }
 
+const pitchedPresetSequenceSpliceTest = (startTime, stopTime, spliceDiv, fund, cArray, pArray, gainVal) => {
+
+    const output = new MyGain(gainVal);
+
+    const bL = 1;
+
+    const b = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    const aB = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    const sB = new MyBuffer2(1, bL, audioCtx.sampleRate);
+    const c = new MyConvolver(1, bL, audioCtx.sampleRate);
+    
+    const impulse = new MyBuffer2(1, 1, audioCtx.sampleRate);
+    impulse.impulse().add();
+    impulse.constant(64).multiply();
+    impulse.playbackRate = 1;
+    impulse.loop = true;
+
+    const p = new PitchedPresets();
+
+    let sP = 0;
+
+    let nS = spliceDiv;
+
+    for(let i=0; i<nS; i++){
+        
+        sP = randomFloat(0, 1-(1/nS));
+
+        p[randomArrayValue(pArray)](fund*randomArrayValue(cArray));
+
+        b.spliceBuffer( p.b1.buffer, sP, sP+(1/nS), i/nS);
+
+        // b.normalize(-1, 1);
+
+    }
+
+    b.normalize(-1, 1);
+    b.movingAverage(36);
+
+    c.setBuffer( b.buffer );
+
+    bufferGraph(c.buffer);
+    // console.log( b.buffer.getChannelData(0) );
+
+    const f = new MyBiquad("highpass", 10, 1);
+
+    impulse.connect(c);
+    c.connect(f);
+    f.connect(output);
+    output.connect(masterGain);
+
+    impulse.startAtTime( globalNow + startTime );
+    
+    output.gain.gain.setTargetAtTime(0, globalNow+stopTime, 0.1);
+
+    impulse.stopAtTime( globalNow + stopTime );
+
+}
+
+
 const percussionPresetSpliceTest = (startTime, stopTime, spliceDiv, pArray, gainVal) => {
 
     const output = new MyGain(gainVal);
