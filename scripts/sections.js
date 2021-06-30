@@ -133,3 +133,35 @@ const coolProgressionTest1 = () => {
     pitchedPresetSpliceTest(0, 8, 2, fund, ['pitch29', 'pitch27'], 1);
 
 }
+
+const presetTests = () => {
+
+    const fund = 0.5*400/m2/P5;
+
+    pitchedPresetSpliceTest(0, 8, 2, fund, ['pitch4'], 1);
+
+}
+
+const presetComboTests = () => {
+
+    const fund = 0.5*400/m2/P5;
+
+    pitchedPresetSpliceTest(0, 8, 2, fund, ['pitch29', 'pitch27'], 1);
+
+}
+
+const presetPitchSequenceTests = () => {
+
+    const fund = 0.5*400/m2/P5;
+
+    pitchedPresetSpliceTest(0, 8, 2, fund, ['pitch4'], 1);
+
+}
+
+const testSections = () => {
+
+    presetTests();
+    // presetComboTests();
+    // presetPitchSequenceTests();
+
+}
