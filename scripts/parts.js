@@ -364,9 +364,6 @@ const pitchedPresetSequenceSpliceTest = (startTime, stopTime, spliceDiv, fund, c
 
     c.setBuffer( b.buffer );
 
-    bufferGraph(c.buffer);
-    // console.log( b.buffer.getChannelData(0) );
-
     const f = new MyBiquad("highpass", 10, 1);
 
     impulse.connect(c);

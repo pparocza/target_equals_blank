@@ -16,7 +16,7 @@ function bufferLoaded(){
 	cB.applyRamp(0, 1, 0.01, 0.015, 0.5, 4);
 
 	c.setBuffer( cB.buffer );
-	c.output.gain.value = 0;
+	c.output.gain.value = 1;
 
 	var d = new Effect();
 	let rI = randomInt(0, 2);

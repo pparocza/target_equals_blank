@@ -144,19 +144,52 @@ const presetTests = () => {
 
 const presetComboTests = () => {
 
-    const fund = 0.5*400/m2/P5;
+    const fund = 0.5*400/m2/P5*P4;
 
-    pitchedPresetSpliceTest(0, 8, 5, fund, ['pitch29', 'pitch27', 'pitch20'], 3);
+    pitchedPresetSpliceTest(0, 8, 2,  fund, ['pitch20'], 1);
+    pitchedPresetSpliceTest(8, 16, 3, fund/M2, ['pitch20'], 1);
+    pitchedPresetSpliceTest(16, 24, 20,  fund, ['pitch20'], 1);
+    pitchedPresetSpliceTest(24, 32, 3, fund, ['pitch20'], 1);
+    pitchedPresetSpliceTest(32, 40, 2,  fund*0.5, ['pitch20'], 1);
     // pitchedPresetSpliceTest(8, 16, 5, fund/M2, ['pitch29', 'pitch27', 'pitch20'], 3);
 
 }
 
 const presetPitchSequenceTests = () => {
 
-    const fund = 0.25*400/m2/P5;
-    const cArray = [1, M2, P4, M6];
+    const fund = 0.5*400/m2/P5*P4;
 
-    pitchedPresetSequenceSpliceTest(0, 8, 5, 4*fund, [1, M2, M3, P4, P5, M6], ['pitch21'], 1);
+    const gainVal = 3;
+
+    const pA =  ['pitch23'];
+    const pA2 = ['pitch23' , 'pitch20'];
+
+    const c1 = [1, M2];
+    const c1A = [1, M2, P4];
+    const c1B = [1/M2/P4, 1, M2];
+
+    const c2 = [1/M2, M2];
+    const c2A = [1/M2/P5, 1, m3];
+
+    pitchedPresetSequenceSpliceTest(0, 8,   randomFloat(5, 5.51), fund, c1,  pA, gainVal);
+    pitchedPresetSequenceSpliceTest(8, 16,  randomFloat(5, 5.51), fund, c2,  pA, gainVal);
+    pitchedPresetSequenceSpliceTest(16, 24, randomFloat(5, 5.51), fund, c1A, pA, gainVal);
+    pitchedPresetSequenceSpliceTest(24, 32, randomFloat(5, 5.51), fund, c2,  pA, gainVal);
+    pitchedPresetSequenceSpliceTest(32, 40, randomFloat(5, 5.51), fund, c1A, pA, gainVal);
+    pitchedPresetSequenceSpliceTest(40, 48, randomFloat(5, 5.51), fund, c2,  pA, gainVal);
+    pitchedPresetSequenceSpliceTest(48, 56, randomFloat(5, 5.51), fund, c1A, pA, gainVal);
+    pitchedPresetSequenceSpliceTest(56, 64, randomFloat(5, 5.51), fund, c2,  pA, gainVal);
+    pitchedPresetSequenceSpliceTest(64, 72, randomFloat(5, 5.51), fund, c1A, pA, gainVal);
+    pitchedPresetSequenceSpliceTest(72, 80, randomFloat(5, 5.51), fund, c2A, pA, gainVal);
+
+    /*
+    pitchedPresetSequenceSpliceTest(0, 8, 3,   2*fund, [1], ['pitch20'], 1);
+    pitchedPresetSequenceSpliceTest(8, 16, 2,  2*fund, [1/M2], ['pitch20'], 1);
+    pitchedPresetSequenceSpliceTest(16, 24, 3, 2*fund, [1], ['pitch20'], 1);
+    pitchedPresetSequenceSpliceTest(24, 32, 2, 2*fund, [1/M2], ['pitch20'], 1);
+    pitchedPresetSequenceSpliceTest(32, 40, 4, 2*fund, [1], ['pitch20'], 1);
+    pitchedPresetSequenceSpliceTest(40, 48, 4, 2*fund, [M2], ['pitch20'], 1);
+    */
 
     // pitchedPresetSequenceSpliceTest(0, 8, 6, 2*fund, [1, M2, P4, M6], ['pitch7'], 1);
     
@@ -169,7 +202,7 @@ const presetPitchSequenceTests = () => {
 const testSections = () => {
 
     // presetTests();
-    presetComboTests();
-    // presetPitchSequenceTests();
+    // presetComboTests();
+    presetPitchSequenceTests();
 
 }

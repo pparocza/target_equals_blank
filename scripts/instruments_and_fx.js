@@ -4549,11 +4549,11 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 22 (fm horn swell)
-	pitch22: function(){
+	pitch22: function(fund){
 
 		this.duration = 2;
 
-		this.fund = 432*0.5;
+		this.fund = fund;
 		this.rate = 0.5;
 
 		this.b1 = new MyBuffer(1, 1, audioCtx.sampleRate);
@@ -4591,7 +4591,7 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 23
-	pitch23: function(){
+	pitch23: function(fund){
 
 		this.duration = 1;
 
@@ -4600,7 +4600,7 @@ PitchedPresets.prototype = {
 		this.b1 = new MyBuffer(1, 1, audioCtx.sampleRate);
 		this.b1.playbackRate = this.rate;
 
-		this.fund = 40;
+		this.fund = fund;
 
 		this.intA = [1, 1.5];
 		this.nHA =  [1, 4];
@@ -4617,13 +4617,11 @@ PitchedPresets.prototype = {
 
 			this.b1.normalize(-1, 1);
 
-			this.b1.applyRamp(0, 1, 0.01, 0.02, 0.1, 8);
+			this.b1.applyRamp(0, 1, 0.01, 0.02, 0.1, 1);
 
 			this.b1.connect(this.output);
 
 			this.startArray = [this.b1];
-
-			bufferGraph(this.b1.buffer);
 
 		},
 
@@ -4660,8 +4658,6 @@ PitchedPresets.prototype = {
 		this.b1.connect(this.output);
 
 		this.startArray = [this.b1];
-
-		bufferGraph(this.b1.buffer);
 
 	},
 
