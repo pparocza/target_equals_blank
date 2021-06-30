@@ -4,7 +4,7 @@ const coolProgression2 = () => {
 
     const gainVal = 3;
 
-    const pA =  ['pitch23']; // pitch23
+    const pA =  ['pitch27', 'pitch23']; // pitch23, pitch27
     const pA2 = ['pitch23' , 'pitch20'];
 
     const c1 = [1, M2];
