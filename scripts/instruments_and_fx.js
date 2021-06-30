@@ -4391,18 +4391,16 @@ PitchedPresets.prototype = {
 
 		this.startArray = [this.b1];
 
-		bufferGraph(this.b1.buffer);
-
 		console.log("pitched preset 17");
 
 	},
 
 	// preset18 (fm chord key)
-	pitch18: function(){
+	pitch18: function(fund){
 
 		this.duration = 1;
 
-		this.fund = 432*0.125;
+		this.fund = fund;
 		this.rate = 1;
 		this.cArray = [1, 2, 4, 3, P5, M3];
 		this.mArray = [1, 2, 4, 3, P5, M3];
@@ -4428,18 +4426,16 @@ PitchedPresets.prototype = {
 
 		this.startArray = [this.b1];
 
-		bufferGraph(this.b1.buffer);
-
 		console.log("pitched preset 18");
 
 	},
 
 	// preset 19 (noise tone)
-	pitch19: function(){
+	pitch19: function(fund){
 
 		this.duration = 1;
 
-		this.fund = 432*0.0625;
+		this.fund = fund;
 		this.rate = 1;
 
 		this.b1 = new MyBuffer(1, 1, audioCtx.sampleRate);
@@ -4475,8 +4471,6 @@ PitchedPresets.prototype = {
 
 		this.startArray = [this.b1];
 
-		bufferGraph(this.b1.buffer);
-
 	},
 
 	// preset 20 (am chord)
@@ -4492,7 +4486,7 @@ PitchedPresets.prototype = {
 
 		this.b1.playbackRate = this.rate;
 
-		this.iArray = [1, M3, P5, 2];
+		this.iArray = [1, 2, 4];
 
 		for(var i=0; i<this.iArray.length; i++){
 			this.b1.addSine(this.fund*this.iArray[i], 1);
@@ -4512,16 +4506,14 @@ PitchedPresets.prototype = {
 
 		this.startArray = [this.b1];
 
-		bufferGraph(this.b1.buffer);
-
 	},
 
 	// preset 21 (mallet horn)
-	pitch21: function(){
+	pitch21: function(fund){
 
 		this.duration = 2;
 
-		this.fund = 432*0.5;
+		this.fund = fund;
 		this.rate = 0.5;
 
 		this.b1 = new MyBuffer(1, 1, audioCtx.sampleRate);
@@ -4553,8 +4545,6 @@ PitchedPresets.prototype = {
 		this.f1.connect(this.output);
 
 		this.startArray = [this.b1];
-
-		bufferGraph(this.b1.buffer);
 
 	},
 

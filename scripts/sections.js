@@ -146,7 +146,8 @@ const presetComboTests = () => {
 
     const fund = 0.5*400/m2/P5;
 
-    pitchedPresetSpliceTest(0, 8, 2, fund, ['pitch29', 'pitch27'], 1);
+    pitchedPresetSpliceTest(0, 8, 5, fund, ['pitch29', 'pitch27', 'pitch20'], 3);
+    // pitchedPresetSpliceTest(8, 16, 5, fund/M2, ['pitch29', 'pitch27', 'pitch20'], 3);
 
 }
 
@@ -155,7 +156,7 @@ const presetPitchSequenceTests = () => {
     const fund = 0.25*400/m2/P5;
     const cArray = [1, M2, P4, M6];
 
-    pitchedPresetSequenceSpliceTest(0, 8, 5, 8*fund, [1, M2, M3, P4, P5, M6], ['pitch17'], 1);
+    pitchedPresetSequenceSpliceTest(0, 8, 5, 4*fund, [1, M2, M3, P4, P5, M6], ['pitch21'], 1);
 
     // pitchedPresetSequenceSpliceTest(0, 8, 6, 2*fund, [1, M2, P4, M6], ['pitch7'], 1);
     
@@ -168,7 +169,7 @@ const presetPitchSequenceTests = () => {
 const testSections = () => {
 
     // presetTests();
-    // presetComboTests();
-    presetPitchSequenceTests();
+    presetComboTests();
+    // presetPitchSequenceTests();
 
 }
