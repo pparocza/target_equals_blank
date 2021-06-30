@@ -3721,11 +3721,11 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 1
-	pitch1: function(){
+	pitch1: function(fund){
 
 		this.duration = 2;
 
-		this.fund = 432;
+		this.fund = fund;
 		this.rate = 0.5;
 		this.cFA = [1];
 		this.mFA = [2];
@@ -3758,11 +3758,11 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 2
-	pitch2: function(){
+	pitch2: function(fund){
 
 		this.duration = 2;
 
-		this.fund = 432;
+		this.fund = fund;
 		this.rate = 0.5;
 		this.cFA = [1, 1, 5];
 		this.mFA = [2, 3, 7];
@@ -3795,11 +3795,11 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 3
-	pitch3: function(){
+	pitch3: function(fund){
 
 		this.duration = 2;
 
-		this.fund = 432*0.25;
+		this.fund = fund;
 		this.rate = 0.5;
 		this.cFA = [1, 1, 5];
 		this.mFA = [2, 3, 7];
@@ -3836,7 +3836,7 @@ PitchedPresets.prototype = {
 
 		this.duration = 1;
 
-		this.fund = fund;s
+		this.fund = fund;
 		this.rate = 1.25;
 		this.cFA = [100, 1];
 		this.mFA = [100, 3];
