@@ -4779,14 +4779,14 @@ PitchedPresets.prototype = {
 
 		for(var i=0; i<this.intA.length; i++){
 
-				for(var j=0; j<this.nHA[i]+1; j++){
+			for(var j=0; j<this.nHA[i]+1; j++){
 
-					this.b1.addSine(this.fund*(this.intA[i]*j), this.gA[i]/j);
-					this.b1.addSine(this.fund*(this.intA[i]*j)*randomFloat(0.99, 1.01), this.gA[i]/j);
-
-				}
+				this.b1.addSine(this.fund*(this.intA[i]*j), this.gA[i]/j);
+				this.b1.addSine(this.fund*(this.intA[i]*j)*randomFloat(0.99, 1.01), this.gA[i]/j);
 
 			}
+
+		}
 
 			this.b1.normalize(-1, 1);
 
@@ -5096,6 +5096,7 @@ PitchedPresets.prototype = {
 
 		this.b1 = new MyBuffer(1, 1, audioCtx.sampleRate);
 		this.b2 = new MyBuffer(1, 1, audioCtx.sampleRate);
+		this.b3 = new MyBuffer(1, 1, audioCtx.sampleRate);
 		this.b1.playbackRate = this.rate;
 
 		this.fund = fund;
@@ -5112,6 +5113,7 @@ PitchedPresets.prototype = {
 
 					this.b2.addSine(this.fund*(this.intA[i]*j), this.gA[i]/j);
 					this.b2.addSine(this.fund*(this.intA[i]*j)*randomFloat(0.99, 1.01), this.gA[i]/j);
+
 					this.b2.applySine(this.fund*(this.intA[i]*j)*randomFloat(0.99, 1.01), this.gA[i]/j);
 
 					this.b1.addBuffer(this.b2.buffer);

@@ -295,7 +295,7 @@ const pitchedPresetSpliceTest = (startTime, stopTime, spliceDiv, fund, pArray, g
 
         p[randomArrayValue(pArray)](fund);
 
-        b.spliceBuffer( p.b1.buffer, sP, sP+(1/(nS*randomFloat(0.95, 1))), i/nS);
+        b.spliceBuffer( p.b1.buffer, sP, sP+(1/nS), i/nS);
 
         // b.normalize(-1, 1);
 
@@ -305,6 +305,9 @@ const pitchedPresetSpliceTest = (startTime, stopTime, spliceDiv, fund, pArray, g
     b.movingAverage(36);
 
     c.setBuffer( b.buffer );
+
+    bufferGraph(c.buffer);
+    // console.log( b.buffer.getChannelData(0) );
 
     const f = new MyBiquad("highpass", 10, 1);
 
