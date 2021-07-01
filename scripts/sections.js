@@ -4,7 +4,7 @@ const coolProgression2 = () => {
 
     const gainVal = 3;
 
-    const pA =  ['pitch27', 'pitch23']; // pitch23, pitch27
+    const pA =  ['pitch23', 'pitch27', 'pitch35']; // 'pitch23', 'pitch27'
     const pA2 = ['pitch23' , 'pitch20'];
 
     const c1 = [1, M2];
@@ -13,6 +13,8 @@ const coolProgression2 = () => {
 
     const c2 = [1/M2, M2];
     const c2A = [1/M2/P5, 1, m3];
+
+    const c3 = [1/M2/M6, 1, m3];
 
     pitchedPresetSequenceSpliceTest(0,  8,  randomFloat(5, 5.51), fund, c1,  pA, gainVal);
     pitchedPresetSequenceSpliceTest(8,  16, randomFloat(5, 5.51), fund, c2,  pA, gainVal);
@@ -24,5 +26,6 @@ const coolProgression2 = () => {
     pitchedPresetSequenceSpliceTest(56, 64, randomFloat(5, 5.51), fund, c2,  pA, gainVal);
     pitchedPresetSequenceSpliceTest(64, 72, randomFloat(5, 5.51), fund, c1A, pA, gainVal);
     pitchedPresetSequenceSpliceTest(72, 80, randomFloat(5, 5.51), fund, c2A, pA, gainVal);
+    pitchedPresetSequenceSpliceTest(80, 88, randomFloat(5, 5.51), fund, c3, pA,  gainVal);
 
 }

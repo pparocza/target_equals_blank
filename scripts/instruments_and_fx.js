@@ -4943,7 +4943,7 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 32 (ominous low)
-	pitch32: function(){
+	pitch32: function(fund){
 
 		this.duration = 4;
 
@@ -4952,7 +4952,7 @@ PitchedPresets.prototype = {
 		this.b1 = new MyBuffer(1, 1, audioCtx.sampleRate);
 		this.b1.playbackRate = this.rate;
 
-		this.fund = 400/P4*0.5;
+		this.fund = fund;
 
 		this.intA = [1];
 		this.nHA =  [10];
@@ -4980,7 +4980,7 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 33 (struck pluck)
-	pitch33: function(){
+	pitch33: function(fund){
 
 		this.duration = 4;
 
@@ -4990,9 +4990,9 @@ PitchedPresets.prototype = {
 		this.b2 = new MyBuffer(1, 1, audioCtx.sampleRate);
 		this.b1.playbackRate = this.rate;
 
-		this.fund = 400/P4*2;
+		this.fund = fund;
 
-		this.intA = [1, 3];
+		this.intA = [1, 2];
 		this.nHA =  [20, 10];
 		this.gA =   [1, 0.5];
 
@@ -5013,18 +5013,16 @@ PitchedPresets.prototype = {
 
 		this.b1.normalize(-1, 1);
 
-		this.b1.applyRamp(0, 1, 0.01, 0.01, 0.1, 8);
+		this.b1.applyRamp(0, 1, 0.01, 0.01, 0.1, 1);
 
 		this.b1.connect(this.output);
 
 		this.startArray = [this.b1];
 
-		bufferGraph(this.b1.buffer);
-
 	},
 
 	// preset 34 (rich and bright)
-	pitch34: function(){
+	pitch34: function(fund){
 
 		this.rate = 0.25;
 
@@ -5032,7 +5030,7 @@ PitchedPresets.prototype = {
 		this.b2 = new MyBuffer(1, 1, audioCtx.sampleRate);
 		this.b1.playbackRate = this.rate;
 
-		this.fund = 400/P4*1;
+		this.fund = fund;
 
 		this.intA = [1, 3, 5];
 		this.nHA =  [20, 10, 20];
@@ -5055,13 +5053,11 @@ PitchedPresets.prototype = {
 
 		this.b1.normalize(-1, 1);
 
-		this.b1.applyRamp(0, 1, 0.01, 0.01, 0.1, 8);
+		this.b1.applyRamp(0, 1, 0.01, 0.01, 0.1, 1);
 
 		this.b1.connect(this.output);
 
 		this.startArray = [this.b1];
-
-		bufferGraph(this.b1.buffer);
 
 	},
 
