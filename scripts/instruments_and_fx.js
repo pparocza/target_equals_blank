@@ -5136,7 +5136,7 @@ PitchedPresets.prototype = {
 			// this.b1.applyRamp(0, 1, 0.5, 0.5, 1, 1);
 
 			this.b2.addSine(5, 1);
-			this.b2.applyRamp(0, 1, 0.01, 0.02, 0.1, 6);
+			this.b2.applyRamp(0, 1, 0.01, 0.02, 0.1, 1);
 
 			this.b1.multiplyBuffer(this.b2.buffer);
 
