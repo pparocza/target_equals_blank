@@ -17,16 +17,19 @@ const coolProgression2 = () => {
 
     const c3 = [1/M2/M6, 1, m3];
 
-    pitchedPresetSequenceSpliceTest(0,  8,  randomFloat(5, 5.51), fund, c1,  pA, gainVal);
-    pitchedPresetSequenceSpliceTest(8,  16, randomFloat(5, 5.51), fund, c2,  pA, gainVal);
-    pitchedPresetSequenceSpliceTest(16, 24, randomFloat(5, 5.51), fund, c1A, pA2, gainVal);
-    pitchedPresetSequenceSpliceTest(24, 32, randomFloat(5, 5.51), fund, c2,  pA, gainVal);
-    pitchedPresetSequenceSpliceTest(32, 40, randomFloat(5, 5.51), fund, c1A, pA2, gainVal);
-    pitchedPresetSequenceSpliceTest(40, 48, randomFloat(5, 5.51), fund, c2,  pA, gainVal);
-    pitchedPresetSequenceSpliceTest(48, 56, randomFloat(5, 5.51), fund, c1A, pA, gainVal);
-    pitchedPresetSequenceSpliceTest(56, 64, randomFloat(5, 5.51), fund, c2,  pA, gainVal);
-    pitchedPresetSequenceSpliceTest(64, 72, randomFloat(5, 5.51), fund, c1A, pA, gainVal);
-    pitchedPresetSequenceSpliceTest(72, 80, randomFloat(5, 5.51), fund, c2A, pA, gainVal);
-    pitchedPresetSequenceSpliceTest(80, 88, randomFloat(5, 5.51), fund, c3,  pA,  gainVal);
+    pitchedPresetSequenceSpliceTest(0,  8,  randomFloat(4.79, 5.26), fund, c1,    pA,  gainVal);
+    pitchedPresetSequenceSpliceTest(8,  16, randomFloat(4.79, 5.26), fund, c2,    pA,  gainVal);
+    pitchedPresetSequenceSpliceTest(16, 24, randomFloat(4.79, 5.26), fund, c1,   pA2,  gainVal);
+    pitchedPresetSequenceSpliceTest(24, 32, randomFloat(4.79, 5.26), fund, c2,    pA,  gainVal);
+    pitchedPresetSequenceSpliceTest(32, 40, randomFloat(4.79, 5.26), fund, c1,   pA2,  gainVal);
+    pitchedPresetSequenceSpliceTest(40, 48, randomFloat(4.79, 5.26), fund, c2,   pA2,  gainVal);
+    pitchedPresetSequenceSpliceTest(48, 56, randomFloat(4.79, 5.26), fund, c1A,  pA2,  gainVal);
+    pitchedPresetSequenceSpliceTest(56, 64, randomFloat(4.79, 5.26), fund, c2,   pA2,  gainVal);
+    pitchedPresetSequenceSpliceTest(64, 72, randomFloat(4.79, 5.26), fund, c1A,  pA2,  gainVal);
+    pitchedPresetSequenceSpliceTest(72, 80, randomFloat(4.79, 5.26), fund, c2A,  pA2,  gainVal);
+    pitchedPresetSequenceSpliceTest(80, 88, randomFloat(4.79, 5.26), fund, c1A,  pA2,  gainVal);
+    pitchedPresetSequenceSpliceTest(88, 96, randomFloat(4.79, 5.26), fund, c2A,  pA2,  gainVal);
+
+    // pitchedPresetSequenceSpliceTest(80, 88, randomFloat(5, 5.51), fund, c3,   pA2,  gainVal);
 
 }
