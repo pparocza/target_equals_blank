@@ -1,6 +1,7 @@
 const coolProgression2 = () => {
 
-    const fund = 0.5*400/m2/P5*P4;
+    const fund = randomFloat(160, 180) // 170.66666666666666;
+    console.log(fund);
 
     const gainVal = 3;
 
@@ -19,14 +20,19 @@ const coolProgression2 = () => {
 
     pitchedPresetSequenceSpliceTest(0,  8,  randomFloat(4.79, 5.26), fund, c1,    pA,  gainVal);
     pitchedPresetSequenceSpliceTest(8,  16, randomFloat(4.79, 5.26), fund, c2,    pA,  gainVal);
+    
     pitchedPresetSequenceSpliceTest(16, 24, randomFloat(4.79, 5.26), fund, c1,   pA2,  gainVal);
     pitchedPresetSequenceSpliceTest(24, 32, randomFloat(4.79, 5.26), fund, c2,    pA,  gainVal);
+    
     pitchedPresetSequenceSpliceTest(32, 40, randomFloat(4.79, 5.26), fund, c1,   pA2,  gainVal);
     pitchedPresetSequenceSpliceTest(40, 48, randomFloat(4.79, 5.26), fund, c2,   pA2,  gainVal);
+    
     pitchedPresetSequenceSpliceTest(48, 56, randomFloat(4.79, 5.26), fund, c1A,  pA2,  gainVal);
     pitchedPresetSequenceSpliceTest(56, 64, randomFloat(4.79, 5.26), fund, c2,   pA2,  gainVal);
+    
     pitchedPresetSequenceSpliceTest(64, 72, randomFloat(4.79, 5.26), fund, c1A,  pA2,  gainVal);
     pitchedPresetSequenceSpliceTest(72, 80, randomFloat(4.79, 5.26), fund, c2A,  pA2,  gainVal);
+    
     pitchedPresetSequenceSpliceTest(80, 88, randomFloat(4.79, 5.26), fund, c1A,  pA2,  gainVal);
     pitchedPresetSequenceSpliceTest(88, 96, randomFloat(4.79, 5.26), fund, c2A,  pA2,  gainVal);
 
