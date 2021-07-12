@@ -324,11 +324,11 @@ const pitchedPresetSpliceTest = (startTime, stopTime, spliceDiv, fund, pArray, g
 
 }
 
-const pitchedPresetSequenceSpliceTest = (startTime, stopTime, spliceDiv, fund, cArray, pArray, gainVal) => {
+const pitchedPresetSequenceSpliceTest = (startTime, stopTime, bufferLength, rate, spliceDiv, fund, cArray, pArray, gainVal) => {
 
     const output = new MyGain(gainVal);
 
-    const bL = 1;
+    const bL = bufferLength;
 
     const b = new MyBuffer2(1, bL, audioCtx.sampleRate);
     const aB = new MyBuffer2(1, bL, audioCtx.sampleRate);
@@ -338,7 +338,7 @@ const pitchedPresetSequenceSpliceTest = (startTime, stopTime, spliceDiv, fund, c
     const impulse = new MyBuffer2(1, 1, audioCtx.sampleRate);
     impulse.impulse().add();
     impulse.constant(64).multiply();
-    impulse.playbackRate = 1;
+    impulse.playbackRate = rate;
     impulse.loop = true;
 
     const p = new PitchedPresets();

@@ -16,13 +16,12 @@ function bufferLoaded(){
 	cB.applyRamp(0, 1, 0.01, 0.015, 0.5, 4);
 
 	c.setBuffer( cB.buffer );
-	c.output.gain.value = 1;
+	c.output.gain.value = 0.5;
 
 	var d = new Effect();
-	let rI = randomInt(0, 2);
-	d.stereoDelay(0.66, 0.33, 0.2, 1);
+	d.randomShortDelay(0.66, 0.33, 0.2, 1);
 	d.on();
-	d.output.gain.value = 0;
+	d.output.gain.value = 0.25;
 
 	fadeFilter = new FilterFade(0);
 
