@@ -74,4 +74,10 @@ const coolProgression2 = () => {
     pitchedPresetSequenceSpliceTest(88, 96 ,  2 , 0.5,   10,   fund*0.5,  c2, pA,   gainVal);
     pitchedPresetSequenceSpliceTest(88, 96 ,  2 , 0.5,   10,   fund*0.5,  c2, pA,   gainVal);
 
+    pitchedPresetSequenceSpliceTest(96 , 104 ,  2,  randomFloat(0.25, 2),  10,   fund, c1,      pA,  gainVal);
+    pitchedPresetSequenceSpliceTest(96 , 104 ,  2,  randomFloat(0.25, 2),  20,   fund, c1,      pA,  gainVal);
+    pitchedPresetSequenceSpliceTest(96 , 104 ,  2,  randomFloat(0.25, 2),  5,   fund*0.25, c1, pA,  gainVal);
+    pitchedPresetSequenceSpliceTest(96 , 104 ,  2 , randomFloat(0.25, 2),  2.5,   fund*0.5,  c1, pA,   gainVal);
+    pitchedPresetSequenceSpliceTest(96 , 104 ,  2 , randomFloat(0.25, 2),  4,     fund*0.5,  c1, pA,   gainVal);
+
 }
