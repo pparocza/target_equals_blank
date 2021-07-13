@@ -3,7 +3,7 @@ const coolProgression2 = () => {
     const fund = 2*randomFloat(160, 180) // 170.66666666666666;
     console.log(fund);
 
-    const gainVal = 0.75;
+    const gainVal = 0.25;
 
     const pA =  [ 
         'pitch23' , 'pitch27' , 'pitch1' , 'pitch3' , 'pitch7', 'pitch9' , 'pitch10', 'pitch12' , 'pitch13', 'pitch20'
@@ -24,8 +24,6 @@ const coolProgression2 = () => {
     const c3 = [1/M2/M6, 1, m3];
 
     // startTime, stopTime, bufferLength, rate, spliceDiv, fund, cArray, pArray, gainVal
-
-    // fxPresetSequenceSpliceTest(0 , 88 ,  2 , 0.5,   10,     fund*0.5,  c1, fA,   gainVal);
 
     pitchedPresetSequenceSpliceTest(0,  8,  2, 0.5, 10, fund, c1, pA,  gainVal);
     pitchedPresetSequenceSpliceTest(8,  16, 2, 0.5, 10, fund, c2, pA,  gainVal);
@@ -68,11 +66,15 @@ const coolProgression2 = () => {
     pitchedPresetSequenceSpliceTest(80 , 88 ,  2 , 0.5,   2.5,   fund*0.5,  c1, pA,   gainVal);
     pitchedPresetSequenceSpliceTest(80 , 88 ,  2 , 0.5,   4,     fund*0.5,  c1, pA,   gainVal);
 
+    fxPresetSequenceSpliceTest(80 , 88 ,  2 , 0.5,   10,     fund*0.5,  c1, fA,   gainVal);
+
     pitchedPresetSequenceSpliceTest(88, 96 ,  2, 0.5,     10,   fund, c2,      pA,  gainVal);
     pitchedPresetSequenceSpliceTest(88, 96 ,  2, 0.5,       10,   fund, c2,      pA,  gainVal);
     pitchedPresetSequenceSpliceTest(88, 96 ,  2, 0.5,      10,   fund*0.25, c2, pA,  gainVal);
     pitchedPresetSequenceSpliceTest(88, 96 ,  2 , 0.5,   10,   fund*0.5,  c2, pA,   gainVal);
     pitchedPresetSequenceSpliceTest(88, 96 ,  2 , 0.5,   10,   fund*0.5,  c2, pA,   gainVal);
+
+    fxPresetSequenceSpliceTest(88 , 96 ,  2 , 0.5,   10,     fund*0.5,  c1, fA,   gainVal);
 
     pitchedPresetSequenceSpliceTest(96 , 104 ,  2,  randomFloat(0.25, 2),  10,   fund, c1,      pA,  gainVal);
     pitchedPresetSequenceSpliceTest(96 , 104 ,  2,  randomFloat(0.25, 2),  20,   fund, c1,      pA,  gainVal);
