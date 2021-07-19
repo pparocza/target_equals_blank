@@ -110,7 +110,7 @@ const coolProgression2 = () => {
     pitchedPresetSequenceSplice( 80 , 88 ,  2 , 0.5 , 2.5 ,  fund*0.5  ,  c1 , pAMid2 ,  gainVal );
     pitchedPresetSequenceSplice( 80 , 88 ,  2 , 0.5 , 4   ,  fund*0.5  ,  c1 , pAMid2 ,  gainVal );
     
-    fxPresetSequenceSplice( 80 , 88 , 2 , 0.5 , 10 , fund*0.5 , c1 , fA , gainVal );
+    fxPresetSequenceSplice( 80 , 88 , 2 , 0.5 , 10 , fund*0.5 , c1 , fA , gainVal*0.5 );
 
     //
     pitchedPresetSequenceSplice( 88 , 96 ,  2 , 0.5 , 10 , fund      ,  c2 , pAHigh2 ,  gainVal );
@@ -119,7 +119,7 @@ const coolProgression2 = () => {
     pitchedPresetSequenceSplice( 88 , 96 ,  2 , 0.5 , 10 , fund*0.5  ,  c2 , pAMid2 ,  gainVal );
     pitchedPresetSequenceSplice( 88 , 96 ,  2 , 0.5 , 10 , fund*0.5  ,  c2 , pAMid2 ,  gainVal );
     
-    fxPresetSequenceSplice(88 , 96 ,  2 , 0.5,   10,     fund*0.5,  c1, fA,   gainVal);
+    fxPresetSequenceSplice(88 , 96 ,  2 , 0.5,   10,     fund*0.5,  c1, fA,   gainVal*0.5 );
 
     //
     pitchedPresetSequenceSplicePan( 96 , 104 ,  2 , randomFloat(0.25, 2) ,  10  ,   fund      ,  c1 , pA , gainVal*2 );
