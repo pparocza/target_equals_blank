@@ -19,7 +19,11 @@ const coolProgression2 = () => {
         'pitch23' , 'pitch27' , 'pitch1' , 'pitch3' , 'pitch7' , 'pitch10' , 'pitch12' , 'pitch13' , 'pitch20'
     ];
 
-    const pAMid =  [ 
+    const pAMid1 =  [ 
+        'pitch23' , 'pitch27' , 'pitch1' , 'pitch13' , 'pitch20'
+    ];
+
+    const pAMid2 =  [ 
         'pitch23' , 'pitch27' , 'pitch1' , 'pitch3' , 'pitch7' , 'pitch13' , 'pitch20'
     ];
 
@@ -66,7 +70,7 @@ const coolProgression2 = () => {
 
     //
     pitchedPresetSequenceSpliceTest( 40 , 48 , 2 , 0.5 ,  10 , fund      , c2 , pAHigh1 , gainVal );
-    pitchedPresetSequenceSpliceTest( 40 , 48 , 2 , 0.5 ,   5 , fund*0.25 , c2 , pAHigh1 , gainVal );
+    pitchedPresetSequenceSpliceTest( 40 , 48 , 2 , 0.5 ,   5 , fund*0.25 , c2 , pALow1 , gainVal );
 
     //
     pitchedPresetSequenceSpliceTest( 48 , 56 , 2 , 0.5 , 10 , fund      , c1 , pAHigh1 , gainVal );
@@ -77,28 +81,28 @@ const coolProgression2 = () => {
     pitchedPresetSequenceSpliceTest( 56 , 64 ,  2 , 0.5 , 10  ,  fund      ,  c2 , pAHigh1 , gainVal );
     pitchedPresetSequenceSpliceTest( 56 , 64 ,  2 , 1   , 20  ,  fund      ,  c2 , pAHigh1 , gainVal );
     pitchedPresetSequenceSpliceTest( 56 , 64 ,  2 , 0.5 , 5   ,  fund*0.25 ,  c2 , pALow1 , gainVal );
-    pitchedPresetSequenceSpliceTest( 56 , 64 ,  2 , 0.5 , 2.5 ,  fund*0.5  ,  c2 , pAMid , gainVal );
+    pitchedPresetSequenceSpliceTest( 56 , 64 ,  2 , 0.5 , 2.5 ,  fund*0.5  ,  c2 , pAMid1 , gainVal );
 
     //
     pitchedPresetSequenceSpliceTest( 64 , 72 ,  2 , 0.5 , 10  ,  fund      , c1 , pAHigh2 , gainVal );
     pitchedPresetSequenceSpliceTest( 64 , 72 ,  2 , 1   , 20  ,  fund      , c1 , pAHigh2 , gainVal );
     pitchedPresetSequenceSpliceTest( 64 , 72 ,  2 , 0.5 , 5   ,  fund*0.25 , c1 , pALow2 , gainVal );
-    pitchedPresetSequenceSpliceTest( 64 , 72 ,  2 , 0.5 , 2.5 ,  fund*0.5  , c1 , pAMid , gainVal );
-    pitchedPresetSequenceSpliceTest( 64 , 72 ,  2 , 0.5 , 4   ,  fund*0.5  , c1 , pAMid , gainVal );
+    pitchedPresetSequenceSpliceTest( 64 , 72 ,  2 , 0.5 , 2.5 ,  fund*0.5  , c1 , pAMid2 , gainVal );
+    pitchedPresetSequenceSpliceTest( 64 , 72 ,  2 , 0.5 , 4   ,  fund*0.5  , c1 , pAMid2 , gainVal );
 
     //
     pitchedPresetSequenceSpliceTest( 72 , 80 ,  2 , 0.5 , 10  ,   fund      , c2 , pAHigh2 ,  gainVal );
     pitchedPresetSequenceSpliceTest( 72 , 80 ,  2 , 1   , 20  ,   fund      , c2 , pAHigh2 ,  gainVal );
     pitchedPresetSequenceSpliceTest( 72 , 80 ,  2 , 0.5 , 5   ,   fund*0.25 , c2 , pALow2 ,  gainVal );
-    pitchedPresetSequenceSpliceTest( 72 , 80 ,  2 , 0.5 , 2.5 ,   fund*0.5  , c2 , pAMid ,  gainVal );
-    pitchedPresetSequenceSpliceTest( 72 , 80 ,  2 , 0.5 , 4   ,   fund*0.5  , c2 , pAMid ,  gainVal );
+    pitchedPresetSequenceSpliceTest( 72 , 80 ,  2 , 0.5 , 2.5 ,   fund*0.5  , c2 , pAMid2 ,  gainVal );
+    pitchedPresetSequenceSpliceTest( 72 , 80 ,  2 , 0.5 , 4   ,   fund*0.5  , c2 , pAMid2 ,  gainVal );
 
     //
     pitchedPresetSequenceSpliceTest( 80 , 88 ,  2 , 0.5 , 10  ,  fund      ,  c1 , pAHigh2 ,  gainVal );
     pitchedPresetSequenceSpliceTest( 80 , 88 ,  2 , 1   , 20  ,  fund      ,  c1 , pAHigh2 ,  gainVal );
     pitchedPresetSequenceSpliceTest( 80 , 88 ,  2 , 0.5 , 5   ,  fund*0.25 ,  c1 , pALow2 ,  gainVal );
-    pitchedPresetSequenceSpliceTest( 80 , 88 ,  2 , 0.5 , 2.5 ,  fund*0.5  ,  c1 , pAMid ,  gainVal );
-    pitchedPresetSequenceSpliceTest( 80 , 88 ,  2 , 0.5 , 4   ,  fund*0.5  ,  c1 , pAMid ,  gainVal );
+    pitchedPresetSequenceSpliceTest( 80 , 88 ,  2 , 0.5 , 2.5 ,  fund*0.5  ,  c1 , pAMid2 ,  gainVal );
+    pitchedPresetSequenceSpliceTest( 80 , 88 ,  2 , 0.5 , 4   ,  fund*0.5  ,  c1 , pAMid2 ,  gainVal );
     
     fxPresetSequenceSpliceTest( 80 , 88 , 2 , 0.5 , 10 , fund*0.5 , c1 , fA , gainVal );
 
@@ -106,8 +110,8 @@ const coolProgression2 = () => {
     pitchedPresetSequenceSpliceTest( 88 , 96 ,  2 , 0.5 , 10 , fund      ,  c2 , pAHigh2 ,  gainVal );
     pitchedPresetSequenceSpliceTest( 88 , 96 ,  2 , 0.5 , 10 , fund      ,  c2 , pAHigh2 ,  gainVal );
     pitchedPresetSequenceSpliceTest( 88 , 96 ,  2 , 0.5 , 10 , fund*0.25 ,  c2 , pALow2 ,  gainVal );
-    pitchedPresetSequenceSpliceTest( 88 , 96 ,  2 , 0.5 , 10 , fund*0.5  ,  c2 , pAMid ,  gainVal );
-    pitchedPresetSequenceSpliceTest( 88 , 96 ,  2 , 0.5 , 10 , fund*0.5  ,  c2 , pAMid ,  gainVal );
+    pitchedPresetSequenceSpliceTest( 88 , 96 ,  2 , 0.5 , 10 , fund*0.5  ,  c2 , pAMid2 ,  gainVal );
+    pitchedPresetSequenceSpliceTest( 88 , 96 ,  2 , 0.5 , 10 , fund*0.5  ,  c2 , pAMid2 ,  gainVal );
     
     fxPresetSequenceSpliceTest(88 , 96 ,  2 , 0.5,   10,     fund*0.5,  c1, fA,   gainVal);
 
