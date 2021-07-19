@@ -63,7 +63,7 @@ const coolProgression2 = () => {
     
     //
     pitchedPresetSequenceSplice( 16 , 24 , 2 , 0.5 , 10 , fund , c1 , pAHigh1 ,  gainVal );
-    pitchedPresetSequenceSplice( 16 , 24 , 2 , 1   , 20 , fund , c1 , pAHigh1 ,  gainVal );
+    pitchedPresetSequenceSpliceDelay( 16 , 24 , 2 , 1   , 20 , fund , c1 , pAHigh1 ,  gainVal );
 
     //
     pitchedPresetSequenceSplice( 24 , 32 , 2 , 0.5 , 10 , fund , c2 , pAHigh1 ,  gainVal );
@@ -85,14 +85,14 @@ const coolProgression2 = () => {
     pitchedPresetSequenceSplice( 56 , 64 ,  2 , 0.5 , 10  ,  fund      ,  c2 , pAHigh1 , gainVal );
     pitchedPresetSequenceSplicePan( 56 , 64 ,  2 , 1   , 20  ,  fund      ,  c2 , pAHigh1 , gainVal*2 );
     pitchedPresetSequenceSplice( 56 , 64 ,  2 , 0.5 , 5   ,  fund*0.25 ,  c2 , pALow1 ,  gainVal );
-    pitchedPresetSequenceSplice( 56 , 64 ,  2 , 0.5 , 2.5 ,  fund*0.5  ,  c2 , pAMid1 ,  gainVal * 1.5 );
+    pitchedPresetSequenceSpliceDelay( 56 , 64 ,  2 , 0.5 , 2.5 ,  fund*0.5  ,  c2 , pAMid1 ,  gainVal * 1.5 );
 
     //
     pitchedPresetSequenceSplice( 64 , 72 ,  2 , 0.5 , 10  ,  fund      , c1 , pAHigh2 , gainVal );
     pitchedPresetSequenceSplicePan( 64 , 72 ,  2 , 1   , 20  ,  fund      , c1 , pAHigh2 , gainVal*2 );
     pitchedPresetSequenceSplice( 64 , 72 ,  2 , 0.5 , 5   ,  fund*0.25 , c1 , pALow2 , gainVal );
-    pitchedPresetSequenceSplice( 64 , 72 ,  2 , 0.5 , 2.5 ,  fund*0.5  , c1 , pAMid2 , gainVal );
-    pitchedPresetSequenceSplice( 64 , 72 ,  2 , 0.5 , 4   ,  fund*0.5  , c1 , pAMid2 , gainVal );
+    pitchedPresetSequenceSpliceDelay( 64 , 72 ,  2 , 0.5 , 2.5 ,  fund*0.5  , c1 , pAMid2 , gainVal );
+    pitchedPresetSequenceSpliceDelay( 64 , 72 ,  2 , 0.5 , 4   ,  fund*0.5  , c1 , pAMid2 , gainVal );
 
     // percussionPresetSequenceSplice( 64 , 72 ,  2 , 0.5 , 10 , fund , c1 , prA , gainVal );
 
@@ -107,8 +107,8 @@ const coolProgression2 = () => {
     pitchedPresetSequenceSplice( 80 , 88 ,  2 , 0.5 , 10  ,  fund      ,  c1 , pAHigh2 ,  gainVal );
     pitchedPresetSequenceSplicePan( 80 , 88 ,  2 , 1   , 20  ,  fund      ,  c1 , pAHigh2 ,  gainVal*2 );
     pitchedPresetSequenceSplice( 80 , 88 ,  2 , 0.5 , 5   ,  fund*0.25 ,  c1 , pALow2 ,  gainVal );
-    pitchedPresetSequenceSplice( 80 , 88 ,  2 , 0.5 , 2.5 ,  fund*0.5  ,  c1 , pAMid2 ,  gainVal );
-    pitchedPresetSequenceSplice( 80 , 88 ,  2 , 0.5 , 4   ,  fund*0.5  ,  c1 , pAMid2 ,  gainVal );
+    pitchedPresetSequenceSpliceDelay( 80 , 88 ,  2 , 0.5 , 2.5 ,  fund*0.5  ,  c1 , pAMid2 ,  gainVal );
+    pitchedPresetSequenceSpliceDelay( 80 , 88 ,  2 , 0.5 , 4   ,  fund*0.5  ,  c1 , pAMid2 ,  gainVal );
     
     fxPresetSequenceSplice( 80 , 88 , 2 , 0.5 , 10 , fund*0.5 , c1 , fA , gainVal*0.5 );
 
@@ -116,8 +116,8 @@ const coolProgression2 = () => {
     pitchedPresetSequenceSplice( 88 , 96 ,  2 , 0.5 , 10 , fund      ,  c2 , pAHigh2 ,  gainVal );
     pitchedPresetSequenceSplice( 88 , 96 ,  2 , 0.5 , 10 , fund      ,  c2 , pAHigh2 ,  gainVal );
     pitchedPresetSequenceSplice( 88 , 96 ,  2 , 0.5 , 10 , fund*0.25 ,  c2 , pALow2 ,  gainVal );
-    pitchedPresetSequenceSplice( 88 , 96 ,  2 , 0.5 , 10 , fund*0.5  ,  c2 , pAMid2 ,  gainVal );
-    pitchedPresetSequenceSplice( 88 , 96 ,  2 , 0.5 , 10 , fund*0.5  ,  c2 , pAMid2 ,  gainVal );
+    pitchedPresetSequenceSpliceDelay( 88 , 96 ,  2 , 0.5 , 10 , fund*0.5  ,  c2 , pAMid2 ,  gainVal );
+    pitchedPresetSequenceSpliceDelay( 88 , 96 ,  2 , 0.5 , 10 , fund*0.5  ,  c2 , pAMid2 ,  gainVal );
     
     fxPresetSequenceSplice(88 , 96 ,  2 , 0.5,   10,     fund*0.5,  c1, fA,   gainVal*0.5 );
 

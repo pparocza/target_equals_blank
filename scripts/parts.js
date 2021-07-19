@@ -130,8 +130,14 @@ const pitchedPresetSequenceSpliceDelay = (startTime, stopTime, bufferLength, rat
     const output = new MyGain(gainVal);
     const delay = new Effect();
     delay.randomShortDelay();
+    delay.on();
+    delay.output.gain.value = 0;
     const delayLFO = new MyBuffer2( 1 , 1 , audioCtx.sampleRate );
+    delayLFO.sawtooth( 1 ).add();
+    delayLFO.playbackRate = rate;
+    delayLFO.loop = true;
 
+    delayLFO.connect(delay.output.gain); 
 
     // CREATE BUFFERS
 
@@ -175,24 +181,20 @@ const pitchedPresetSequenceSpliceDelay = (startTime, stopTime, bufferLength, rat
 
     impulse.connect(c);
     c.connect(f);
-    f.connect(pan);
-    pan.connect(output);
+    f.connect(delay);
+
+    f.connect(output);
+    delay.connect(output);
+
     output.connect(masterGain);
 
     impulse.startAtTime( globalNow + startTime );
-
-    let i = 0;
-
-    while( ( ( i * rate ) / spliceDiv ) < globalNow + stopTime ){
-
-        pan.setPositionAtTime( randomFloat( -1 , 1 ) , ( ( i * rate ) / spliceDiv ) );
-        i++
-
-    }
+    delayLFO.startAtTime( globalNow + startTime );
     
     output.gain.gain.setTargetAtTime(0, globalNow+stopTime, 0.1);
 
     impulse.stopAtTime( globalNow + stopTime );
+    delayLFO.stopAtTime( globalNow + stopTime );
 
 }
 
