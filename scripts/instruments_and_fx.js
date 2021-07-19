@@ -4022,11 +4022,11 @@ PitchedPresets.prototype = {
 	},
 
 	// preset 10 ("I" bell)
-	pitch10: function(){
+	pitch10: function(fund){
 
 		this.duration = 1;
 
-		this.fund = 500;
+		this.fund = fund;
 		this.rate = 1;
 		this.cFA = [1, 4.75, 6.375];
 		this.mFA = [1, 4.75, 6.375];
