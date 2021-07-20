@@ -20,7 +20,7 @@ const coolProgression2 = () => {
     ];
 
     const pAMid1 =  [ 
-        'pitch23' , 'pitch27' , 'pitch1' , 'pitch13' , 'pitch20'
+        'pitch23' , 'pitch27' , 'pitch20' // , 'pitch1' , 'pitch13' , 'pitch20'
     ];
 
     const pAMid2 =  [ 
@@ -56,10 +56,10 @@ const coolProgression2 = () => {
     // startTime, stopTime, bufferLength, rate, spliceDiv, fund, cArray, pArray, gainVal
 
     //
-    pitchedPresetSequenceSplicePan( 0*96 , 104 ,  2 , randomFloat(0.25, 2) ,  10  ,   fund      ,  c1 , pA , gainVal * 2 );
-    pitchedPresetSequenceSplicePan( 0*96 , 104 ,  2 , randomFloat(0.25, 2) ,  20  ,   fund      ,  c1 , pA , gainVal * 2 );
-    pitchedPresetSequenceSplicePan( 0*96 , 104 ,  2 , randomFloat(0.25, 2) ,  5   ,   fund*0.25 ,  c1 , pA , gainVal * 2 );
-    pitchedPresetSequenceSplicePan( 0*96 , 104 ,  2 , randomFloat(0.25, 2) ,  2.5 ,   fund*0.5  ,  c1 , pA , gainVal * 2 );
-    pitchedPresetSequenceSplicePan( 0*96 , 104 ,  2 , randomFloat(0.25, 2) ,  4   ,   fund*0.5  ,  c1 , pA , gainVal * 2 );
+    pitchedPresetSequenceSplicePan( 0*96 , 104 ,  2 , randomFloat(0.25, 2) ,  10  ,   fund      ,  c1 , pAMid1 , gainVal * 2 );
+    pitchedPresetSequenceSplicePan( 0*96 , 104 ,  2 , randomFloat(0.25, 2) ,  20  ,   fund      ,  c1 , pAMid1 , gainVal * 2 );
+    pitchedPresetSequenceSplicePan( 0*96 , 104 ,  2 , randomFloat(0.25, 2) ,  5   ,   fund*0.25 ,  c1 , pAMid1 , gainVal * 2 );
+    pitchedPresetSequenceSplicePan( 0*96 , 104 ,  2 , randomFloat(0.25, 2) ,  2.5 ,   fund*0.5  ,  c1 , pAMid1 , gainVal * 2 );
+    pitchedPresetSequenceSplicePan( 0*96 , 104 ,  2 , randomFloat(0.25, 2) ,  4   ,   fund*0.5  ,  c1 , pAMid1 , gainVal * 2 );
 
 }
