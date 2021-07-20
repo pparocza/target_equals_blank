@@ -56,76 +56,10 @@ const coolProgression2 = () => {
     // startTime, stopTime, bufferLength, rate, spliceDiv, fund, cArray, pArray, gainVal
 
     //
-    pitchedPresetSequenceSplice( 0 , 8 , 2 , 0.5 , 10 , fund , c1 , pAHigh1 , gainVal );
-
-    //
-    pitchedPresetSequenceSplice( 8 , 16 , 2 , 0.5 , 10 , fund , c2 , pAHigh1 ,  gainVal );
-    
-    //
-    pitchedPresetSequenceSplice( 16 , 24 , 2 , 0.5 , 10 , fund , c1 , pAHigh1 ,  gainVal );
-    pitchedPresetSequenceSplice( 16 , 24 , 2 , 1   , 20 , fund , c1 , pAHigh1 ,  gainVal );
-
-    //
-    pitchedPresetSequenceSplice( 24 , 32 , 2 , 0.5 , 10 , fund , c2 , pAHigh1 ,  gainVal );
-
-    //
-    pitchedPresetSequenceSplice( 32 , 40 , 2 , 0.5 , 10 , fund      , c1 , pAHigh1 ,  gainVal );
-    pitchedPresetSequenceSpliceDelay( 32 , 40 , 2 , 0.5 , 5  , fund*0.25 , c1 , pALow2 ,  gainVal );
-
-    //
-    pitchedPresetSequenceSpliceDelay( 40 , 48 , 2 , 0.5 ,  10 , fund      , c2 , pAHigh1 , gainVal );
-    pitchedPresetSequenceSplice( 40 , 48 , 2 , 0.5 ,   5 , fund*0.25 , c2 , pALow1 , gainVal );
-
-    //
-    pitchedPresetSequenceSpliceDelay( 48 , 56 , 2 , 0.5 , 10 , fund      , c1 , pAHigh1 , gainVal );
-    pitchedPresetSequenceSplicePan( 48 , 56 , 2 , 1   , 20 , fund      , c1 , pAHigh2 , gainVal );
-    pitchedPresetSequenceSpliceDelay( 48 , 56 , 2 , 0.5 , 5  , fund*0.25 , c1 , pALow2 , gainVal );
-
-    //
-    pitchedPresetSequenceSplice( 56 , 64 ,  2 , 0.5 , 10  ,  fund      ,  c2 , pAHigh1 , gainVal );
-    pitchedPresetSequenceSplicePan( 56 , 64 ,  2 , 1   , 20  ,  fund      ,  c2 , pAHigh1 , gainVal*2 );
-    pitchedPresetSequenceSplice( 56 , 64 ,  2 , 0.5 , 5   ,  fund*0.25 ,  c2 , pALow1 ,  gainVal );
-    pitchedPresetSequenceSpliceDelay( 56 , 64 ,  2 , 0.5 , 2.5 ,  fund*0.5  ,  c2 , pAMid1 ,  gainVal * 1.5 );
-
-    //
-    pitchedPresetSequenceSpliceDelay( 64 , 72 ,  2 , 0.5 , 10  ,  fund      , c1 , pAHigh2 , gainVal );
-    pitchedPresetSequenceSplicePan( 64 , 72 ,  2 , 1   , 20  ,  fund      , c1 , pAHigh2 , gainVal*2 );
-    pitchedPresetSequenceSplice( 64 , 72 ,  2 , 0.5 , 5   ,  fund*0.25 , c1 , pALow2 , gainVal );
-    pitchedPresetSequenceSpliceDelay( 64 , 72 ,  2 , 0.5 , 2.5 ,  fund*0.5  , c1 , pAMid2 , gainVal );
-    pitchedPresetSequenceSpliceDelay( 64 , 72 ,  2 , 0.5 , 4   ,  fund*0.5  , c1 , pAMid2 , gainVal );
-
-    // percussionPresetSequenceSplice( 64 , 72 ,  2 , 0.5 , 10 , fund , c1 , prA , gainVal );
-
-    //
-    pitchedPresetSequenceSpliceDelay( 72 , 80 ,  2 , 0.5 , 10  ,   fund      , c2 , pAHigh2 ,  gainVal );
-    pitchedPresetSequenceSplicePan( 72 , 80 ,  2 , 1   , 20  ,   fund      , c2 , pAHigh2 ,  gainVal*2 );
-    pitchedPresetSequenceSplice( 72 , 80 ,  2 , 0.5 , 5   ,   fund*0.25 , c2 , pALow2 ,  gainVal );
-    pitchedPresetSequenceSpliceDelay( 72 , 80 ,  2 , 0.5 , 2.5 ,   fund*0.5  , c2 , pAMid2 ,  gainVal );
-    pitchedPresetSequenceSpliceDelay( 72 , 80 ,  2 , 0.5 , 4   ,   fund*0.5  , c2 , pAMid2 ,  gainVal );
-
-    //
-    pitchedPresetSequenceSpliceDelay( 80 , 88 ,  2 , 0.5 , 10  ,  fund      ,  c1 , pAHigh2 ,  gainVal );
-    pitchedPresetSequenceSplicePan( 80 , 88 ,  2 , 1   , 20  ,  fund      ,  c1 , pAHigh2 ,  gainVal * 2 );
-    pitchedPresetSequenceSplice( 80 , 88 ,  2 , 0.5 , 5   ,  fund*0.25 ,  c1 , pALow2 ,  gainVal );
-    pitchedPresetSequenceSpliceDelay( 80 , 88 ,  2 , 0.5 , 2.5 ,  fund*0.5  ,  c1 , pAMid2 ,  gainVal * 1.5 );
-    pitchedPresetSequenceSpliceDelay( 80 , 88 ,  2 , 0.5 , 4   ,  fund*0.5  ,  c1 , pAMid2 ,  gainVal * 1.5 );
-    
-    fxPresetSequenceSplicePan( 80 , 88 , 2 , 0.5 , 10 , fund*0.5 , c1 , fA , gainVal*0.5 );
-
-    //
-    pitchedPresetSequenceSpliceDelay( 88 , 96 ,  2 , 0.5 , 10 , fund      ,  c2 , pAHigh2 ,  gainVal );
-    pitchedPresetSequenceSpliceDelay( 88 , 96 ,  2 , 0.5 , 10 , fund      ,  c2 , pAHigh2 ,  gainVal );
-    pitchedPresetSequenceSpliceDelay( 88 , 96 ,  2 , 0.5 , 10 , fund*0.25 ,  c2 , pALow2 ,   gainVal );
-    pitchedPresetSequenceSpliceDelay( 88 , 96 ,  2 , 0.5 , 10 , fund*0.5  ,  c2 , pAMid2 ,   gainVal );
-    pitchedPresetSequenceSpliceDelay( 88 , 96 ,  2 , 0.5 , 10 , fund*0.5  ,  c2 , pAMid2 ,   gainVal );
-    
-    fxPresetSequenceSpliceDelay(88 , 96 ,  2 , 0.5,   10,     fund*0.5,  c1, fA,   gainVal*0.5 );
-
-    //
-    pitchedPresetSequenceSplicePan( 96 , 104 ,  2 , randomFloat(0.25, 2) ,  10  ,   fund      ,  c1 , pA , gainVal * 2 );
-    pitchedPresetSequenceSplicePan( 96 , 104 ,  2 , randomFloat(0.25, 2) ,  20  ,   fund      ,  c1 , pA , gainVal * 2 );
-    pitchedPresetSequenceSplicePan( 96 , 104 ,  2 , randomFloat(0.25, 2) ,  5   ,   fund*0.25 ,  c1 , pA , gainVal * 2 );
-    pitchedPresetSequenceSplicePan( 96 , 104 ,  2 , randomFloat(0.25, 2) ,  2.5 ,   fund*0.5  ,  c1 , pA , gainVal * 2 );
-    pitchedPresetSequenceSplicePan( 96 , 104 ,  2 , randomFloat(0.25, 2) ,  4   ,   fund*0.5  ,  c1 , pA , gainVal * 2 );
+    pitchedPresetSequenceSplicePan( 0*96 , 104 ,  2 , randomFloat(0.25, 2) ,  10  ,   fund      ,  c1 , pA , gainVal * 2 );
+    pitchedPresetSequenceSplicePan( 0*96 , 104 ,  2 , randomFloat(0.25, 2) ,  20  ,   fund      ,  c1 , pA , gainVal * 2 );
+    pitchedPresetSequenceSplicePan( 0*96 , 104 ,  2 , randomFloat(0.25, 2) ,  5   ,   fund*0.25 ,  c1 , pA , gainVal * 2 );
+    pitchedPresetSequenceSplicePan( 0*96 , 104 ,  2 , randomFloat(0.25, 2) ,  2.5 ,   fund*0.5  ,  c1 , pA , gainVal * 2 );
+    pitchedPresetSequenceSplicePan( 0*96 , 104 ,  2 , randomFloat(0.25, 2) ,  4   ,   fund*0.5  ,  c1 , pA , gainVal * 2 );
 
 }
