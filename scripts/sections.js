@@ -3,7 +3,7 @@ const coolProgression2 = () => {
     const fund = 2*randomFloat(160, 180) // 170.66666666666666;
     console.log(fund);
 
-    const gainVal = 0.5;
+    const gainVal = 0.25;
 
     // 'pitch20' is a really nice 'house organ' type of thing that works really 
     // well here
