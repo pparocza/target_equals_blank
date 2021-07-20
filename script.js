@@ -24,6 +24,7 @@ function bufferLoaded(){
 	d.output.gain.value = 0.25;
 
 	const f = new MyBiquad( "highpass" , 10 , 1 );
+	const f2 = new MyBiquad("lowpass" , 1000, 1 );
 
 	fadeFilter = new FilterFade(0);
 
@@ -37,8 +38,9 @@ function bufferLoaded(){
 	d.connect(gain);
 
 	gain.connect(f.input);
+	f.connect(f2);
 
-	f.connect(fadeFilter);
+	f2.connect(fadeFilter);
 	fadeFilter.connect(audioCtx.destination);
 
 	// INITIALIZATIONS

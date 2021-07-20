@@ -58,7 +58,7 @@ const coolProgression2 = () => {
     //
     pitchedPresetSequenceSplicePan( 0*96 , 104 ,  2 , randomFloat(0.25, 2) ,  10  ,   fund      ,  c1 , pAMid1 , gainVal * 2 );
     pitchedPresetSequenceSplicePan( 0*96 , 104 ,  2 , randomFloat(0.25, 2) ,  20  ,   fund      ,  c1 , pAMid1 , gainVal * 2 );
-    pitchedPresetSequenceSplicePan( 0*96 , 104 ,  2 , randomFloat(0.25, 2) ,  5   ,   fund*0.25 ,  c1 , pAMid1 , gainVal * 2 );
+    pitchedPresetSequenceSplicePan( 0*96 , 104 ,  2 , randomFloat(0.25, 2) ,  5   ,   fund*0.5 ,  c1 , pAMid1 , gainVal * 2 );
     pitchedPresetSequenceSplicePan( 0*96 , 104 ,  2 , randomFloat(0.25, 2) ,  2.5 ,   fund*0.5  ,  c1 , pAMid1 , gainVal * 2 );
     pitchedPresetSequenceSplicePan( 0*96 , 104 ,  2 , randomFloat(0.25, 2) ,  4   ,   fund*0.5  ,  c1 , pAMid1 , gainVal * 2 );
 
