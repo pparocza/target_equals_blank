@@ -16,15 +16,18 @@ function bufferLoaded(){
 	cB.applyRamp(0, 1, 0.01, 0.015, 0.5, 4);
 
 	c.setBuffer( cB.buffer );
-	c.output.gain.value = 0.5;
+	c.output.gain.value = 0.0625;
 
 	var d = new Effect();
-	d.randomShortDelay(0.66, 0.33, 0.2, 1);
+
+	const dL = randomFloat(0.25, 0.4);
+
+	d.stereoDelay(dL*2, dL, 0.2, 1);
 	d.on();
-	d.output.gain.value = 0.25;
+	d.output.gain.value = 0.0625;
 
 	const f = new MyBiquad( "highpass" , 10 , 1 );
-	const f2 = new MyBiquad("lowpass" , 1000, 1 );
+	const f2 = new MyBiquad("lowpass" , 20000, 1 );
 
 	fadeFilter = new FilterFade(0);
 
