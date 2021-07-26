@@ -39,6 +39,10 @@ const coolProgression2 = () => {
     // fund: 351.00854974083495 , chord: 1 , div 7 , rate: 0.2218077534454225 , end time: 98
     // fund: 358.208078526564 , chord: 2 , div 5 , rate: 0.2345177730841897 , end time: 70
     // fund: 330.99116122596007 , chord: 1 , div 7 , rate: 0.2883277430912772 , end time: 98
+    // fund: 327.3874142476063 , chord: 0 , div 10 , rate: 0.24158624221449512 , end time: 140
+    // fund: 337.0035869677449 , chord: 0 , div 10 , rate: 0.209981129050708 , end time: 140
+    // fund: 355.0096903066589 , chord: 2 , div 8 , rate: 0.20885708495119337 , end time: 112
+    // fund: 358.44289481792623 , chord: 0 , div 7 , rate: 0.2751849957610972 , end time: 98
 
     // startTime, stopTime, bufferLength, rate, spliceDiv, fund, cArray, pArray, gainVal
 
