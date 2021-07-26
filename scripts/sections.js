@@ -15,18 +15,12 @@ const coolProgression2 = () => {
         'pitch23' , 'pitch27' , 'pitch20'
     ];
 
-    const c1 = [1, M2];
-
     const c1A = [1, M2, P4, 1/m3, M6];
     const c1B = [1/M2/P4, 1, M2]; 
     const c1C = [1, M2, M3, P5];
     const c1D = [1, M2, M3, P5, M6];
 
-    const c2 = [1/M2, M2];
-
-    const c3 = [1/M2/M6, 1, m3];
-
-    const chordArray = [ c1A , c1B , c1C , c1D ]; // c1D , c1C* , c1A , c1B
+    const chordArray = [ c1B , c1C , c1D ]; // c1D , c1C* , c1A , c1B
 
     const chordIdx = randomInt( 0 , chordArray.length );
     const currentChord = chordArray[ chordIdx ];
@@ -36,6 +30,12 @@ const coolProgression2 = () => {
     const endTime = div * 14;
 
     console.log(`fund: ${fund} , chord: ${chordIdx} , div ${div} , rate: ${rate} , end time: ${endTime}`);
+    // fund: 339.961843388973 , chord: 1 , div 8 , rate: 0.23251616525007013 , end time: 112
+    // fund: 344.7732229376423 , chord: 2 , div 8 , rate: 0.2775900235619053 , end time: 112
+    // fund: 347.704524373619 , chord: 3 , div 6 , rate: 0.2812388782494855 , end time: 84
+    // fund: 342.86548026406024 , chord: 3 , div 8 , rate: 0.23113541705481946 , end time: 112
+    // fund: 338.5899437510577 , chord: 1 , div 8 , rate: 0.20915176806359595 , end time: 112
+    // fund: 326.30622815558075 , chord: 3 , div 6 , rate: 0.280832522611688 , end time: 84
 
     // startTime, stopTime, bufferLength, rate, spliceDiv, fund, cArray, pArray, gainVal
 
@@ -50,8 +50,8 @@ const coolProgression2 = () => {
     pitchedPresetSequenceSpliceDelay( div*4 , endTime ,  randomFloat( 1 , 2 ) , randomFloat( 0.5 , 1.5 ) ,  div * randomArrayValue( [ 0.25 ] ) ,   fund*0.5  ,  currentChord , pAHigh1 , gainVal );
     pitchedPresetSequenceSpliceDelay( div*5 , endTime ,  randomFloat( 1 , 2 ) , randomFloat( 0.5 , 1.5 ) ,  div * randomArrayValue( [ 0.25 ] ) ,   fund*0.5  ,  currentChord , pAHigh1 , gainVal );
 
-    pitchedPresetSequenceSpliceDelay( div*4 , div*9 ,  randomFloat( 1 , 2 ) , rate ,  div ,  fund  ,  currentChord , pAHigh1 , gainVal );
-    pitchedPresetSequenceSpliceDelay( div*5 , div*9 ,  randomFloat( 1 , 2 ) , rate ,  div ,  fund  ,  currentChord , pAHigh1 , gainVal );
+    pitchedPresetSequenceSpliceDelay( div*4 , div*9 ,  randomFloat( 1 , 2 ) , rate ,  div ,  fund  ,  currentChord , pA , gainVal );
+    pitchedPresetSequenceSpliceDelay( div*5 , div*9 ,  randomFloat( 1 , 2 ) , rate ,  div ,  fund  ,  currentChord , pA , gainVal );
 
     pitchedPresetSequenceSpliceDelay( div*6 , div*9 ,  randomFloat( 1 , 2 ) , rate ,  div * 2 ,  fund * 2  ,  currentChord , pAHigh1 , gainVal * 0.5 );
 
@@ -70,6 +70,9 @@ const coolProgression2 = () => {
     pitchedPresetSequenceSpliceDelay( div*10 , endTime ,  randomFloat( 1 , 2 ) , rate ,  div ,  fund  ,  currentChord , pAHigh1 , gainVal );
     pitchedPresetSequenceSpliceDelay( div*11 , endTime ,  randomFloat( 1 , 2 ) , rate ,  div ,  fund  ,  currentChord , pAHigh1 , gainVal );
     pitchedPresetSequenceSpliceDelay( div*12 , endTime ,  randomFloat( 1 , 2 ) , rate ,  div * 2 ,  fund * 2  ,  currentChord , pAHigh1 , gainVal * 0.5 );
+
+    // pitchedPresetSequenceSpliceDelay( div*13 , endTime + ( div * 0.5 ) ,  randomFloat( 1 , 2 ) , rate ,  div ,  fund  ,  currentChord , pAHigh1 , gainVal );
+    // pitchedPresetSequenceSpliceDelay( div*13 , endTime + ( div * 0.5 ) ,  randomFloat( 1 , 2 ) , rate ,  div ,  fund  ,  currentChord , pAHigh1 , gainVal );
     
 
 }
