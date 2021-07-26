@@ -3715,8 +3715,6 @@ PitchedPresets.prototype = {
 
 		this.startArray = [this.b1];
 
-		console.log("pitched preset 1");
-
 	},
 
 	// preset 2

@@ -38,6 +38,7 @@ const pitchedPresetSequenceSplice = (startTime, stopTime, bufferLength, rate, sp
 
     b.normalize(-1, 1);
     b.movingAverage(36);
+    b.ramp( 0 , 1 , 0.1 , 0.9 , 1 , 1 );
 
     c.setBuffer( b.buffer );
 
@@ -132,12 +133,19 @@ const pitchedPresetSequenceSpliceDelay = (startTime, stopTime, bufferLength, rat
     delay.randomShortDelay();
     delay.on();
     delay.output.gain.value = 0;
+
     const delayLFO = new MyBuffer2( 1 , 1 , audioCtx.sampleRate );
-    delayLFO.sawtooth( 1 ).add();
+    const dR = randomInt( 0 , 2 );
+
+    dR === 1 ? delayLFO.inverseSawtooth( 1 ).add( 0 ) : delayLFO.sawtooth( 1 ).add( 0 );
+
     delayLFO.playbackRate = rate;
     delayLFO.loop = true;
 
-    delayLFO.connect(delay.output.gain); 
+    const delayLFOFilter = new MyBiquad( "lowpass" , 10 , 1 );
+
+    delayLFO.connect(delayLFOFilter);
+    delayLFOFilter.connect(delay.output.gain); 
 
     // CREATE BUFFERS
 
@@ -168,12 +176,11 @@ const pitchedPresetSequenceSpliceDelay = (startTime, stopTime, bufferLength, rat
 
         b.spliceBuffer( p.b1.buffer, sP, sP+(1/nS), i/nS);
 
-        // b.normalize(-1, 1);
-
     }
 
     b.normalize(-1, 1);
     b.movingAverage(36);
+    b.ramp( 0 , 1 , 0.0125 , 0.9875 , 0.5 , 0.5 ).multiply( 0 );
 
     c.setBuffer( b.buffer );
 
@@ -394,7 +401,6 @@ const fxPresetSequenceSplicePan = (startTime, stopTime, bufferLength, rate, spli
     impulse.stopAtTime( globalNow + stopTime );
 
 }
-
 
 const percussionPresetSequenceSplice = (startTime, stopTime, bufferLength, rate, spliceDiv, fund, cArray, pArray, gainVal) => {
 
