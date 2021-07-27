@@ -3787,8 +3787,6 @@ PitchedPresets.prototype = {
 
 		this.startArray = [this.b1];
 
-		console.log("pitched preset 3");
-
 	},
 
 	// preset 4 (bell key)
@@ -4015,8 +4013,6 @@ PitchedPresets.prototype = {
 
 		this.startArray = [this.b1];
 
-		console.log("pitched preset 9");
-
 	},
 
 	// preset 10 ("I" bell)
@@ -4052,8 +4048,6 @@ PitchedPresets.prototype = {
 		this.b1.connect(this.output);
 
 		this.startArray = [this.b1];
-
-		console.log("pitched preset 10")
 
 	},
 
