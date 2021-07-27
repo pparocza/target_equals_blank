@@ -46,8 +46,10 @@ const coolProgression2 = () => {
 
     // startTime, stopTime, bufferLength, rate, spliceDiv, fund, cArray, pArray, gainVal
 
-    pitchedPresetSequenceSpliceDelay( div*0 , div*4 ,  randomFloat( 1 , 2 ) , rate ,  div ,  fund  ,  currentChord , pAHigh1 , gainVal );
-    pitchedPresetSequenceSpliceDelay( div*0 , div*6 ,  randomFloat( 1 , 2 ) , rate ,  div ,  fund  ,  currentChord , pAHigh1 , gainVal );
+    pitchedPresetSequenceSpliceDelay( div*0 , div*2 ,  randomFloat( 1 , 2 ) , rate ,  div ,  fund  ,  currentChord , pAHigh1 , gainVal );
+    pitchedPresetSequenceSpliceDelay( div*0.5 , div*3 ,  randomFloat( 1 , 2 ) , rate ,  div ,  fund  ,  currentChord , pAHigh1 , gainVal );
+    pitchedPresetSequenceSpliceDelay( div*2 , div*5 ,  randomFloat( 1 , 2 ) , rate ,  div ,  fund  ,  currentChord , pAHigh1 , gainVal );
+    pitchedPresetSequenceSpliceDelay( div*3 , div*6 ,  randomFloat( 1 , 2 ) , rate ,  div ,  fund  ,  currentChord , pAHigh1 , gainVal );
 
     pitchedPresetSequenceSpliceDelay( div*1 , endTime ,  randomFloat( 1 , 2 ) , rate ,  div * 0.5  ,  fund  ,  currentChord , pAHigh1 , gainVal );
 
