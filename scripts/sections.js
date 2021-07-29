@@ -255,7 +255,9 @@ class Piece {
 
         console.log(`fund: ${this.fund} , chord: ${this.chordIdx} , div ${this.div} , rate: ${this.rate} , end time: ${this.endTime}`);
 
-        pitchedPresetSequenceSpliceDelay( 0 , this.pL ,  randomFloat( 1 , 2 ) , this.rate ,  this.div ,  this.fund  ,  this.currentChord , this.pAHigh1 , this.gainVal );
+        pitchedPresetSequenceSpliceDelay( 0 , this.pL * 1.5 ,  randomFloat( 1 , 2 ) , this.rate ,  this.div ,  this.fund  ,  this.currentChord , this.pAHigh1 , this.gainVal );
+        pitchedPresetSequenceSpliceDelay( this.pL * 1.5 , this.pL * 5 ,  randomFloat( 1 , 2 ) , this.rate ,  this.div ,  this.fund  ,  this.currentChord , this.pAHigh1 , this.gainVal );
+        pitchedPresetSequenceSpliceDelay( this.pL * 3 , this.pL * 4.5 ,  randomFloat( 1 , 2 ) , this.rate ,  this.div ,  this.fund  ,  this.currentChord , this.pAHigh1 , this.gainVal );
         
         /*
         pitchedPresetSequenceSpliceDelay( this.div*0.5 , this.div*2.5 ,  randomFloat( 1 , 2 ) , this.rate ,  this.div ,  this.fund  ,  this.currentChord , this.pAHigh1 , this.gainVal );
