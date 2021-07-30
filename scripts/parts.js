@@ -139,7 +139,7 @@ const pitchedPresetSequenceSpliceDelay = (startTime, stopTime, bufferLength, rat
 
     dR === 1 ? delayLFO.inverseSawtooth( 1 ).add( 0 ) : delayLFO.sawtooth( 1 ).add( 0 );
 
-    delayLFO.playbackRate = rate;
+    delayLFO.playbackRate = rate * randomArrayValue( [ 0.5 , 0.25 , 0.33 , 0.66 , 1 , 1.5 , 1.25 ] );
     delayLFO.loop = true;
 
     const delayLFOFilter = new MyBiquad( "lowpass" , 10 , 1 );

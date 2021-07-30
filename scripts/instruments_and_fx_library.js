@@ -8725,8 +8725,6 @@ MyBuffer.prototype = {
 
 		this.cA = [];
 
-		console.log()
-
 		for(var i=0; i<this.buffer.numberOfChannels; i++){
 			this.bufferArray = this.buffer.getChannelData(i);
 			this.otherBufferArray = this.otherBuffer.getChannelData(i);
