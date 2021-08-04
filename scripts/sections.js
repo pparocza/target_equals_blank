@@ -102,6 +102,7 @@ class Piece {
         // fund: 355.0687247579041 , chord: 0 , div 8 , this.rate: 0.2609988577607561 , end time: 112
         // fund: 352.15876472484166 , chord: 0 , div 7 , this.rate: 0.20613563611166508 , end time: 98
         // fund: 343.0985994082451 , chord: 1 , div 7 , this.rate: 0.20899903740687525 , end time: 98
+        // fund: 357.00422794494114 , chord: 2 , div 8 , this.rate: 0.29607481645452605 , end time: 112
 
         pitchedPresetSequenceSpliceDelay( this.div*0 , this.div*2 , randomFloat( 1 , 2 ) , this.rate , this.div ,  this.fund  ,  this.currentChord , this.pAHigh1 , this.gainVal );
         pitchedPresetSequenceSpliceDelay( this.div*0 , this.div*3 , randomFloat( 1 , 2 ) , this.rate , this.div ,  this.fund  ,  this.currentChord , this.pAHigh1 , this.gainVal );
